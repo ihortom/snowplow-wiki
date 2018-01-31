@@ -6,6 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
+- [Snowplow 100 Epidaurus](#r100) (**r100**) 2018-02-xx
 - [Snowplow 99 Carnac](#r99) (**r99**) 2018-01-25
 - [Snowplow 98 Argentomagus](#r98) (**r98**) 2018-01-05
 - [Snowplow 97 Knossos](#r97) (**r97**) 2017-12-18
@@ -62,6 +63,28 @@ For easier navigation, please, follow the links below.
 - [Snowplow 0.9.1](#v0.9.1) (**v0.9.1**) 2014-04-11
 - [Snowplow 0.9.0](#v0.9.0) (**v0.9.0**) 2014-02-04
 
+
+
+<a name="r100" />
+
+## Snowplow 100 Epidaurus
+
+This release lets you pseudonymize PII fields in your streaming pipeline.
+
+### Stream Enrich
+
+The latest version of *Stream Enrich* is available from our Bintray [here](http://dl.bintray.com/snowplow/snowplow-generic/snowplow_stream_enrich_0.14.0.zip).
+
+### Updating Redshift tables
+
+If you are using Redshift as a storage target, it is important to update the `atomic.events` table, so that the new fields will fit using:
+[a migration script](https://github.com/snowplow/snowplow/blob/master/4-storage/redshift-storage/sql/migrate_0.9.0_to_0.10.0.sql).
+
+### Read more
+
+* [R100 Blog Post](https://snowplowanalytics.com/blog/2018/02/01/snowplow-r100-epidaurus-released-with-pii-pseudonymization-support/)
+* [R100 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r100-epidaurus)
+
 <a name="r99" />
 
 ## Snowplow 99 Carnac
@@ -90,7 +113,7 @@ For a complete example, see our sample [`config.yml`](https://github.com/snowplo
 
 ### Read more
 
-* [R99 Blog Post](https://snowplowanalytics.com/blog/2018/01/25/snowplow-r99-carnac/)
+* [R99 Blog Post](https://snowplowanalytics.com/blog/2018/01/25/snowplow-r99-carnac-with-google-analytics-support/)
 * [R99 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r99-carnac)
 * [Google Analytics integration setup guide](Setting-up-google-analytics-integration)
 

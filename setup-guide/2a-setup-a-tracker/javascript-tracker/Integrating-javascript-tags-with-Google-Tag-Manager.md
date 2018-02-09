@@ -383,7 +383,7 @@ Then we can create a single Snowplow event tag in GTM that is fired with every `
 ```html
 <!-- Snowplow structured event tracking -->
 <script type="text/javascript">
-window.snowplow('trackStructEvent', '{{eventCategory}}', '{{eventAction}}', '{{eventLabel}}', '{{eventProperty}}' '{{eventValue}}');
+window.snowplow('trackStructEvent', '{{eventCategory}}', '{{eventAction}}', '{{eventLabel}}', '{{eventProperty}}', '{{eventValue}}');
 </script>
 ```
 

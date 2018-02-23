@@ -34,7 +34,7 @@ The available options are as follows:
         -d, --debug                      enable EMR Job Flow debugging
         -f {enrich,shred,elasticsearch,archive_raw,rdb_load,analyze,archive_enriched},
             --resume-from                resume from the specified step
-        -x {staging,enrich,shred,elasticsearch,archive_raw,rdb_load,analyze,archive_enriched},
+        -x {staging,enrich,shred,elasticsearch,archive_raw,rdb_load,analyze,archive_enriched,archive_shredded},
             --skip                       skip the specified step(s)
         -i, --include {vacuum}           include additional step(s)
         -l, --lock PATH                  where to store the lock

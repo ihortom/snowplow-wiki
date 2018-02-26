@@ -6,7 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
-- [Snowplow 100 Epidaurus](#r100) (**r100**) 2018-02-xx
+- [Snowplow 100 Epidaurus](#r100) (**r100**) 2018-02-26
 - [Snowplow 99 Carnac](#r99) (**r99**) 2018-01-25
 - [Snowplow 98 Argentomagus](#r98) (**r98**) 2018-01-05
 - [Snowplow 97 Knossos](#r97) (**r97**) 2017-12-18
@@ -82,7 +82,7 @@ If you are using Redshift as a storage target, it is important to update the `at
 
 ### Read more
 
-* [R100 Blog Post](https://snowplowanalytics.com/blog/2018/02/01/snowplow-r100-epidaurus-released-with-pii-pseudonymization-support/)
+* [R100 Blog Post](https://snowplowanalytics.com/blog/2018/02/26/snowplow-r100-epidaurus-released-with-pii-pseudonymization-support/)
 * [R100 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r100-epidaurus)
 
 <a name="r99" />

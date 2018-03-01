@@ -68,7 +68,7 @@ Our Webhooks setup page should look like this after we have added our **Callback
 If you want, you can also manually override the event's `platform` parameter by appending a query string to the end of the URL so:
 
 ```
-http://<collector host>/com.callrail/v1?p=<platform code>
+http://<collector host>/com.mailchimp/v1?p=<platform code>
 ```
 
 Supported platform codes can again be found in the [Snowplow Tracker Protocol][tracker-protocol]; if not set, then the value for `platform` will default to `srv` for a server-side application.

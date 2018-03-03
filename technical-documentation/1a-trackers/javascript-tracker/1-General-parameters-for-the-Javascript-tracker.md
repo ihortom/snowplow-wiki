@@ -92,7 +92,7 @@ n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d1fc8wv8zag
 </script>
 ```
 
-*Important note regarding testing:* `"//d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js"` is the protocol-relative URL used to fetch `sp.js`. It will work if the your web page is using the "http" or "https" protocol. But if you are testing locally and loading your page from your filesystem using the "file" protocol (so its URI looks something like "file:///home/joe/snowplow_test.html"), the protocol-relative URL will also use that protocol, preventing the script from loading. To avoid this, change the URL to `"http://d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js"` when testing locally.
+*Important note regarding testing:* `"//d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js"` is the protocol-relative URL used to fetch `sp.js`. It will work if the your web page is using the "http" or "https" protocol. But if you are testing locally and loading your page from your filesystem using the "file" protocol (so its URI looks something like "file:///home/joe/snowplow_test.html"), the protocol-relative URL will also use that protocol, preventing the script from loading. To avoid this, change the URL to `"http://d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js"` when testing locally.
 
 As well as loading Snowplow, this tag creates a global function called "snowplow_name_here" which you use to access the Tracker. You can replace the string "snowplow_name_here" with the function name of your choice. This is encouraged: if there are two Snowplow users on the same page, there won't be any conflict between them as long as they have chosen different function names. The rest of the documentation will assume that the function is called "snowplow_name_here".
 

@@ -2,7 +2,7 @@
 
 [**HOME**](Home) » [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow-technical-documentation) » [**Trackers**](trackers) » [**JavaScript Tracker**](Javascript-Tracker) » General parameters
 
-*This page refers to version 2.9.0 of the Snowplow JavaScript Tracker.*
+*This page refers to version 2.8.2 of the Snowplow JavaScript Tracker.*
 
 *Click [here][general-parameters-v1] for the corresponding documentation for version 1.*
 
@@ -19,8 +19,6 @@
 *Click [here][general-parameters-v2.6] for the corresponding documentation for version 2.6.2.*
 
 *Click [here][general-parameters-v2.7] for the corresponding documentation for version 2.7.2.*
-
-*Click [here][general-parameters-v2.8] for the corresponding documentation for version 2.8.2.*
 
 <a name="general"></a>
 
@@ -88,11 +86,11 @@ Use the following tag to your page to load Snowplow.js:
 ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
 p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
 };p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
-n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js","snowplow_name_here"));
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js","snowplow_name_here"));
 </script>
 ```
 
-*Important note regarding testing:* `"//d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js"` is the protocol-relative URL used to fetch `sp.js`. It will work if the your web page is using the "http" or "https" protocol. But if you are testing locally and loading your page from your filesystem using the "file" protocol (so its URI looks something like "file:///home/joe/snowplow_test.html"), the protocol-relative URL will also use that protocol, preventing the script from loading. To avoid this, change the URL to `"http://d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js"` when testing locally.
+*Important note regarding testing:* `"//d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js"` is the protocol-relative URL used to fetch `sp.js`. It will work if the your web page is using the "http" or "https" protocol. But if you are testing locally and loading your page from your filesystem using the "file" protocol (so its URI looks something like "file:///home/joe/snowplow_test.html"), the protocol-relative URL will also use that protocol, preventing the script from loading. To avoid this, change the URL to `"http://d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js"` when testing locally.
 
 As well as loading Snowplow, this tag creates a global function called "snowplow_name_here" which you use to access the Tracker. You can replace the string "snowplow_name_here" with the function name of your choice. This is encouraged: if there are two Snowplow users on the same page, there won't be any conflict between them as long as they have chosen different function names. The rest of the documentation will assume that the function is called "snowplow_name_here".
 
@@ -588,8 +586,6 @@ Note: this will only set the user ID on further events fired while the user is o
 snowplow_name_here('setUserId', 'joe.blogs@email.com');
 ```
 
-Note: `setUserId` can also be called using the alias `identifyUser`.
-
 <a name="set-user-id-from-location" />
 
 ##### 2.3.1.1 `setUserIdFromLocation`
@@ -755,8 +751,6 @@ like _sp_ses.4209 and _sp_id.4209.
 Called _sp_ses.{{DOMAIN HASH}} by default, the only purpose of this cookie is to differentiate between different visits. Whenever an event is fired, the session cookie is set to expire in 30 minutes. (This value can be altered using `setSessionCookieTimeout`.)
 
 If no session cookie is already present when an event fires, the tracker treats this as an indication that long enough has passed since the user last visited that this session should be treated as a new session rather than a continuation of the previous session. The `visitCount` (how many times the user has visited) is increased by one and the `lastVisitTs` (the timestamp for the last session) is updated.
-
-Note: A new session can be started at any time by calling the function `newSession`.
 
 #### The ID cookie
 

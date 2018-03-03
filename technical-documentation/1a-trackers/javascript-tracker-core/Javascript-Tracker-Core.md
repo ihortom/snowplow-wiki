@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow-technical-documentation) > [**Trackers**](trackers) > JavaScript Tracker Core
+[**HOME**](Home) » [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow-technical-documentation) » [**Trackers**](trackers) » JavaScript Tracker Core
 
 
 ## Contents
@@ -30,6 +30,8 @@
    - 4.9 [`trackAdImpression()`](#trackAdImpression)
    - 4.10 [`trackAdClick()`](#trackAdClick)
    - 4.11[`trackAdConversion()`](#trackAdConversion)
+   - 4.12[`trackConsentGranted()`](#trackConsentGranted)
+   - 4.13[`trackConsentWithdrawn()`](#trackConsentWithdrawn)
 
 
 <a name="overview" />
@@ -120,18 +122,18 @@ t.resetPayloadPairs({
 
 For convenience, other setter methods are provided for certain fields. They all use `addPayloadPair`.
 
-| **Method name**       | **Key added** | **Example**                             |
-|----------------------:|:--------------|:----------------------------------------|
-| `setTrackerVersion`   | `tv`          |`t.setTrackerVersion('js-3.0.0');`       |
-| `setTrackerNamespace` | `tna`         |`t.setTrackerNamespace('cloudfront-1');` |
-| `setAppId`            | `aid`         |`t.setAppId('my-node-application');`     |
-| `setPlatform`         | `p`           |`t.setPlatform('web');`                  |
-| `setUserId`           | `uid`         |`t.setUserId('user-427')`                |
-| `setScreenResolution` | `res`         |`t.setScreenResolution(800, 600)`        |
-| `setViewport`         | `vp`          |`t.setViewport(307,250)`                 |
-| `setColorDepth`       | `cd`          |`t.setColorDepth(24)`                    |
-| `setTimezone`         | `tz`          |`t.setTimezone('Europe/London')`         |
-| `setIpAddress`        | `ip`          |`t.setIpAddress('37.347.12.457')`        |
+|       **Method name** | **Key added** | **Example**                              |
+|----------------------:|:--------------|:-----------------------------------------|
+|   `setTrackerVersion` | `tv`          | `t.setTrackerVersion('js-3.0.0');`       |
+| `setTrackerNamespace` | `tna`         | `t.setTrackerNamespace('cloudfront-1');` |
+|            `setAppId` | `aid`         | `t.setAppId('my-node-application');`     |
+|         `setPlatform` | `p`           | `t.setPlatform('web');`                  |
+|           `setUserId` | `uid`         | `t.setUserId('user-427')`                |
+| `setScreenResolution` | `res`         | `t.setScreenResolution(800, 600)`        |
+|         `setViewport` | `vp`          | `t.setViewport(307,250)`                 |
+|       `setColorDepth` | `cd`          | `t.setColorDepth(24)`                    |
+|         `setTimezone` | `tz`          | `t.setTimezone('Europe/London')`         |
+|        `setIpAddress` | `ip`          | `t.setIpAddress('37.347.12.457')`        |
 
 <a name="example" />
 
@@ -209,12 +211,12 @@ When called, a tracker method will assemble a payload dictionary based on the ar
 
 ### 4.2 `trackScreenView()`
 
-| **Argument** | **Description**                     | **Required?** | **Type**                |
-|-------------:|:------------------------------------|:--------------|:------------------------|
-| `name`       | Human-readable name for this screen | No            | Non-empty string        |
-| `id`         | Unique identifier for this screen   | No            | String                  |
-| `context`    | Custom context                      | No            | Array                   |
-| `tstamp`     | When the screen was viewed          | No            | Positive integer        |
+| **Argument** | **Description**                     | **Required?** | **Type**         |
+|-------------:|:------------------------------------|:--------------|:-----------------|
+|       `name` | Human-readable name for this screen | No            | Non-empty string |
+|         `id` | Unique identifier for this screen   | No            | String           |
+|    `context` | Custom context                      | No            | Array            |
+|     `tstamp` | When the screen was viewed          | No            | Positive integer |
 
 `name` and `id` are not individually required, but you must provide at least one of them.
 
@@ -228,13 +230,13 @@ t.trackScreenView("HUD > Save Game", "screen23", null, 1368725287000);
 
 ### 4.3 `trackPageView()`
 
-| **Argument** | **Description**                     | **Required?** | **Type**                |
-|-------------:|:------------------------------------|:--------------|:------------------------|
-| `pageUrl`    | The URL of the page                 | Yes           | Non-empty string        |
-| `pageTitle`  | The title of the page               | No            | String                  |
-| `referrer`   | The address which linked to the page| No            | String                  |
-| `context`    | Custom context                      | No            | Array                   |
-| `tstamp`     | When the screen was viewed          | No            | Positive integer        |
+| **Argument** | **Description**                      | **Required?** | **Type**         |
+|-------------:|:-------------------------------------|:--------------|:-----------------|
+|    `pageUrl` | The URL of the page                  | Yes           | Non-empty string |
+|  `pageTitle` | The title of the page                | No            | String           |
+|   `referrer` | The address which linked to the page | No            | String           |
+|    `context` | Custom context                       | No            | Array            |
+|     `tstamp` | When the screen was viewed           | No            | Positive integer |
 
 Example:
 
@@ -246,19 +248,19 @@ t.trackPageView("www.example.com", "example", "www.referrer.com");
 
 ### 4.4 `trackEcommerceTransaction()`
 
-| **Argument**  | **Description**                      | **Required?** | **Type**                 |
-|--------------:|:-------------------------------------|:--------------|:-------------------------|
-| `orderId`     | ID of the eCommerce transaction      | Yes           | Non-empty string         |
-| `affiliation` | Transaction affiliation              | No            | String                   |
-| `totalValue`  | Total transaction value              | Yes           | Number                   |
-| `taxValue`    | Transaction tax value                | No            | Number                   |
-| `shipping`    | Delivery cost charged                | No            | Number                   |
-| `city`        | Delivery address city                | No            | String                   |
-| `state`       | Delivery address state               | No            | String                   |
-| `country`     | Delivery address country             | No            | String                   |
-| `currency`    | Currency                             | No            | String                   |
-| `context`     | Custom context                       | No            | Array                    |
-| `tstamp`      | When the transaction event occurred  | No            | Positive integer         |
+|  **Argument** | **Description**                     | **Required?** | **Type**         |
+|--------------:|:------------------------------------|:--------------|:-----------------|
+|     `orderId` | ID of the eCommerce transaction     | Yes           | Non-empty string |
+| `affiliation` | Transaction affiliation             | No            | String           |
+|  `totalValue` | Total transaction value             | Yes           | Number           |
+|    `taxValue` | Transaction tax value               | No            | Number           |
+|    `shipping` | Delivery cost charged               | No            | Number           |
+|        `city` | Delivery address city               | No            | String           |
+|       `state` | Delivery address state              | No            | String           |
+|     `country` | Delivery address country            | No            | String           |
+|    `currency` | Currency                            | No            | String           |
+|     `context` | Custom context                      | No            | Array            |
+|      `tstamp` | When the transaction event occurred | No            | Positive integer |
 
 Example:
 
@@ -280,17 +282,17 @@ t.trackEcommerceTransaction(
 
 ### 4.5 `trackEcommerceTransactionItem()`
 
-| **Field**  | **Description**                     | **Required?** | **Type**                 |
-|-----------:|:------------------------------------|:--------------|:-------------------------|
-| `orderId`  | ID of the eCommerce transaction     | Yes           | Non-empty string         |
-| `sku`      | Item SKU                            | Yes           | Non-empty string         |
-| `name`     | Item name                           | No            | String                   |
-| `category` | Item category                       | No            | String                   |
-| `price`    | Item price                          | Yes           | Number                   |
-| `quantity` | Item quantity                       | Yes           | Int                      |
-| `currency` | Currency                            | No            | String                   |
-| `context`  | Custom context for the event        | No            | Array                    |
-| `tstamp`   | When the transaction event occurred | No            | Positive integer         |
+|  **Field** | **Description**                     | **Required?** | **Type**         |
+|-----------:|:------------------------------------|:--------------|:-----------------|
+|  `orderId` | ID of the eCommerce transaction     | Yes           | Non-empty string |
+|      `sku` | Item SKU                            | Yes           | Non-empty string |
+|     `name` | Item name                           | No            | String           |
+| `category` | Item category                       | No            | String           |
+|    `price` | Item price                          | Yes           | Number           |
+| `quantity` | Item quantity                       | Yes           | Int              |
+| `currency` | Currency                            | No            | String           |
+|  `context` | Custom context for the event        | No            | Array            |
+|   `tstamp` | When the transaction event occurred | No            | Positive integer |
 
 Example:
 
@@ -311,14 +313,14 @@ t.trackEcommerceTransactionItem(
 ### 4.6 `trackStructEvent()`
 
 | **Argument** | **Description**                                                  | **Required?** | **Type**         |
-|-------------:|:---------------------------------------------------------------  |:--------------|:-----------------|
-| `category`   | The grouping of structured events which this `action` belongs to | Yes           | Non-empty string |
-| `action`     | Defines the type of user interaction which this event involves   | Yes           | Non-empty string |
-| `label`      | A string to provide additional dimensions to the event data      | No            | String           |
-| `property`   | A string describing the object or the action performed on it     | No            | String           |
-| `value`      | A value to provide numerical data about the event                | No            | Number           |
-| `context`     | Custom context for the event                                    | No            | Array            |
-| `tstamp`     | When the structured event occurred                               | No            | Positive integer |
+|-------------:|:-----------------------------------------------------------------|:--------------|:-----------------|
+|   `category` | The grouping of structured events which this `action` belongs to | Yes           | Non-empty string |
+|     `action` | Defines the type of user interaction which this event involves   | Yes           | Non-empty string |
+|      `label` | A string to provide additional dimensions to the event data      | No            | String           |
+|   `property` | A string describing the object or the action performed on it     | No            | String           |
+|      `value` | A value to provide numerical data about the event                | No            | Number           |
+|    `context` | Custom context for the event                                     | No            | Array            |
+|     `tstamp` | When the structured event occurred                               | No            | Positive integer |
 
 Example:
 
@@ -330,11 +332,11 @@ t.trackStructEvent("shop", "add-to-basket", null, "pcs", 2);
 
 ### 4.7 `trackUnstructEvent()`
 
-| **Argument**   | **Description**                      | **Required?** | **Type**                |
-|---------------:|:-------------------------------------|:--------------|:------------------------|
-| `properties`   | The properties of the event          | Yes           | JSON                    |
-| `context`      | Custom context for the event         | No            | Array                   |
-| `tstamp`       | When the unstructured event occurred | No            | Positive integer        |
+| **Argument** | **Description**                      | **Required?** | **Type**         |
+|-------------:|:-------------------------------------|:--------------|:-----------------|
+| `properties` | The properties of the event          | Yes           | JSON             |
+|    `context` | Custom context for the event         | No            | Array            |
+|     `tstamp` | When the unstructured event occurred | No            | Positive integer |
 
 Example:
 
@@ -354,14 +356,14 @@ t.trackUnstructEvent({
 
 ### 4.8 `trackLinkClick()`
 
-| **Field**        | **Description**                     | **Required?** | **Type**                 |
-|-----------------:|:------------------------------------|:--------------|:-------------------------|
-| `targetUrl`      | URL of the link                     | Yes           | Non-empty string         |
-| `elementId`      | HTML id of the link element         | No            | Non-empty string         |
-| `elementClasses` | HTML classes of the link element    | No            | Array                    |
-| `elementTarget`  | HTML target of the link element     | No            | String                   |
-| `context`        | Custom context for the event        | No            | Array                    |
-| `tstamp`         | Item price                          | No            | Number                   |
+|        **Field** | **Description**                  | **Required?** | **Type**         |
+|-----------------:|:---------------------------------|:--------------|:-----------------|
+|      `targetUrl` | URL of the link                  | Yes           | Non-empty string |
+|      `elementId` | HTML id of the link element      | No            | Non-empty string |
+| `elementClasses` | HTML classes of the link element | No            | Array            |
+|  `elementTarget` | HTML target of the link element  | No            | String           |
+|        `context` | Custom context for the event     | No            | Array            |
+|         `tstamp` | Item price                       | No            | Number           |
 
 ```js
 t.trackLinkClick(
@@ -376,16 +378,16 @@ t.trackLinkClick(
 
 ### 4.9 `trackAdImpression()`
 
-| **Name**       | **Description**  | **Required?**                           | **Type**
-|---------------:|:--------------|:-------------------------------------------|:---------------------|
-| `impressionId` | Identifier for the particular impression instance  | No             | string |
-|    `costModel` | The cost model for the campaign: 'cpc', 'cpm', or 'cpa' | No             | string |
-|         `cost` | Ad cost | No              |    number    |
-|   `targetUrl`  | The destination URL  | No            |        string   |
-|     `bannerId` | Adserver identifier for the ad banner (creative) being displayed | No             | string                |
-|       `zoneId` | Adserver identifier for the zone where the ad banner is located | No             | string  |
-| `advertiserID` | Adserver identifier for the advertiser which the campaign belongs to | No                 | string   |
-|   `campaignId` | Adserver identifier for the ad campaign which the banner belongs to | No               |  string |
+|       **Name** | **Description**                                                      | **Required?** | **Type** |
+|---------------:|:---------------------------------------------------------------------|:--------------|:---------|
+| `impressionId` | Identifier for the particular impression instance                    | No            | string   |
+|    `costModel` | The cost model for the campaign: 'cpc', 'cpm', or 'cpa'              | No            | string   |
+|         `cost` | Ad cost                                                              | No            | number   |
+|    `targetUrl` | The destination URL                                                  | No            | string   |
+|     `bannerId` | Adserver identifier for the ad banner (creative) being displayed     | No            | string   |
+|       `zoneId` | Adserver identifier for the zone where the ad banner is located      | No            | string   |
+| `advertiserID` | Adserver identifier for the advertiser which the campaign belongs to | No            | string   |
+|   `campaignId` | Adserver identifier for the ad campaign which the banner belongs to  | No            | string   |
 
 Example:
 
@@ -406,16 +408,16 @@ t.trackAdImpression(
 
 ### 4.10 `trackAdClick()`
 
-| **Name**       | **Description**                            | **Required?** | **Type**
-|---------------:|:-------------------------------------------|:--------------|:-----------
-|   `targetUrl`  | The destination URL  | Yes           |        string   |
-|      `clickId` | Identifier for the particular click instance   | No            | string  |
-|    `costModel` | The cost model for the campaign: 'cpc', 'cpm', or 'cpa' | No            |  string  |
-|         `cost` | Ad cost   | No            |    number    |
-|     `bannerId` | Adserver identifier for the ad banner (creative) being displayed  | No            |  string
-|       `zoneId` | Adserver identifier for the zone where the ad banner is located  | No            | string
-| `advertiserID` | Adserver identifier for the advertiser which the campaign belongs to   | No            |  string                      |
-|   `campaignId` | Adserver identifier for the ad campaign which the banner belongs | No            |  to   |  string                       |
+|       **Name** | **Description**                                                      | **Required?** | **Type** |        |
+|---------------:|:---------------------------------------------------------------------|:--------------|:---------|:-------|
+|    `targetUrl` | The destination URL                                                  | Yes           | string   |        |
+|      `clickId` | Identifier for the particular click instance                         | No            | string   |        |
+|    `costModel` | The cost model for the campaign: 'cpc', 'cpm', or 'cpa'              | No            | string   |        |
+|         `cost` | Ad cost                                                              | No            | number   |        |
+|     `bannerId` | Adserver identifier for the ad banner (creative) being displayed     | No            | string   |        |
+|       `zoneId` | Adserver identifier for the zone where the ad banner is located      | No            | string   |        |
+| `advertiserID` | Adserver identifier for the advertiser which the campaign belongs to | No            | string   |        |
+|   `campaignId` | Adserver identifier for the ad campaign which the banner belongs     | No            | to       | string |
 
 Example:
 
@@ -437,17 +439,17 @@ t.trackAdClick(
 
 ### 4.11 `trackAdConversion()`
 
-| **Name**       | **Description**                            | **Required?** | **Type**             |
-|---------------:|:-------------------------------------------|:--------------|:--------------------
-| `conversionId` | Identifier for the particular conversion instance   | No            | string
-|    `costModel` | The cost model for the campaign: 'cpc', 'cpm', or 'cpa'   | No            |  string
-|         `cost` | Ad cost   | No            |    number    |
-|     `category` | Conversion category                        | No            |    number                              |
-|       `action` | The type of user interaction, e.g. 'purchase' | No            | string                           |
-|     `property` | Describes the object of the conversion        | No            | string                           |
-| `initialValue` | How much the conversion is initially worth   | No            | number                           |
-| `advertiserID` | Adserver identifier for the advertiser which the campaign belongs to | No            |  string   |
-|   `campaignId` | Adserver identifier for the ad campaign which the banner belongs to  | No            |  string  |
+|       **Name** | **Description**                                                      | **Required?** | **Type** |
+|---------------:|:---------------------------------------------------------------------|:--------------|:---------|
+| `conversionId` | Identifier for the particular conversion instance                    | No            | string   |
+|    `costModel` | The cost model for the campaign: 'cpc', 'cpm', or 'cpa'              | No            | string   |
+|         `cost` | Ad cost                                                              | No            | number   |
+|     `category` | Conversion category                                                  | No            | number   |
+|       `action` | The type of user interaction, e.g. 'purchase'                        | No            | string   |
+|     `property` | Describes the object of the conversion                               | No            | string   |
+| `initialValue` | How much the conversion is initially worth                           | No            | number   |
+| `advertiserID` | Adserver identifier for the advertiser which the campaign belongs to | No            | string   |
+|   `campaignId` | Adserver identifier for the ad campaign which the banner belongs to  | No            | string   |
 
 Example:
 
@@ -462,6 +464,58 @@ t.trackAdConversion(
     '201',       // advertiserId
     'cpa',       // costModel
     '12'         // campaignId
+);
+```
+
+<a name="trackConsentGranted" />
+
+### 4.12 `trackConsentGranted()`
+
+|      **Name** | **Description**                                           | **Required?** | **Type**         |
+|--------------:|:----------------------------------------------------------|:--------------|:-----------------|
+|          `id` | Identifier for the document granting consent              | Yes           | Number           |
+|     `version` | Version of the document granting consent                  | Yes           | Number           |
+|        `name` | Name of the document granting consent                     | No            | String           |
+| `description` | Description of the document granting consent              | No            | String           |
+|      `expiry` | Date-time string specifying when consent document expires | No            | String           |
+|     `context` | Custom context for the event                              | No            | Array            |
+|      `tstamp` | When the event occurred                                   | No            | Positive integer |
+
+Example:
+
+```js
+t.trackConsentGranted(
+    743560297,                     // id
+    10,                            // version
+    'consent-document',            // name
+    'a document granting consent', // description
+    '2020-11-21T08:00:00.000Z'     // expiry
+);
+```
+
+<a name="trackConsentWithdrawn" />
+
+### 4.13 `trackConsentWithdrawn()`
+
+|      **Name** | **Description**                                   | **Required?** | **Type**         |
+|--------------:|:--------------------------------------------------|:--------------|:-----------------|
+|          `id` | Identifier for the document withdrawing consent   | Yes           | Number           |
+|     `version` | Version of the document withdrawing consent       | Yes           | Number           |
+|        `name` | Name of the document withdrawing consent          | No            | String           |
+| `description` | Description of the document withdrawing consent   | No            | String           |
+|         `all` | Specifies whether all consent should be withdrawn | No            | Boolean          |
+|     `context` | Custom context for the event                      | No            | Array            |
+|      `tstamp` | When the event occurred                           | No            | Positive integer |
+
+Example:
+
+```js
+t.trackConsentWithdrawn(
+    743560297,                        // id
+    10,                               // version
+    'consent-document',               // name
+    'a document withdrawing consent', // description
+    'false'                           // all
 );
 ```
 

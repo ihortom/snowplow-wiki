@@ -2,7 +2,7 @@
 
 [**HOME**](Home) » [**SNOWPLOW TECHNICAL DOCUMENTATION**](Snowplow-technical-documentation) » [**Trackers**](trackers) » [**JavaScript Tracker**](Javascript-Tracker) » General parameters
 
-*This page refers to version 2.8.2 of the Snowplow JavaScript Tracker.*
+*This page refers to version 2.9.0 of the Snowplow JavaScript Tracker.*
 
 *Click [here][general-parameters-v1] for the corresponding documentation for version 1.*
 
@@ -19,6 +19,8 @@
 *Click [here][general-parameters-v2.6] for the corresponding documentation for version 2.6.2.*
 
 *Click [here][general-parameters-v2.7] for the corresponding documentation for version 2.7.2.*
+
+*Click [here][general-parameters-v2.8] for the corresponding documentation for version 2.8.2.*
 
 <a name="general"></a>
 
@@ -86,11 +88,11 @@ Use the following tag to your page to load Snowplow.js:
 ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
 p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
 };p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
-n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js","snowplow_name_here"));
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js","snowplow_name_here"));
 </script>
 ```
 
-*Important note regarding testing:* `"//d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js"` is the protocol-relative URL used to fetch `sp.js`. It will work if the your web page is using the "http" or "https" protocol. But if you are testing locally and loading your page from your filesystem using the "file" protocol (so its URI looks something like "file:///home/joe/snowplow_test.html"), the protocol-relative URL will also use that protocol, preventing the script from loading. To avoid this, change the URL to `"http://d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js"` when testing locally.
+*Important note regarding testing:* `"//d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js"` is the protocol-relative URL used to fetch `sp.js`. It will work if the your web page is using the "http" or "https" protocol. But if you are testing locally and loading your page from your filesystem using the "file" protocol (so its URI looks something like "file:///home/joe/snowplow_test.html"), the protocol-relative URL will also use that protocol, preventing the script from loading. To avoid this, change the URL to `"http://d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js"` when testing locally.
 
 As well as loading Snowplow, this tag creates a global function called "snowplow_name_here" which you use to access the Tracker. You can replace the string "snowplow_name_here" with the function name of your choice. This is encouraged: if there are two Snowplow users on the same page, there won't be any conflict between them as long as they have chosen different function names. The rest of the documentation will assume that the function is called "snowplow_name_here".
 
@@ -195,7 +197,9 @@ If your website spans multiple subdomains e.g.
 
 You will want to track user behaviour across all those subdomains, rather than within each individually. As a result, it is important that the domain for your first party cookies is set to '.mysite.com' rather than 'www.mysite.com'. By doing so, any values that are stored on the cookie on one of subdomain will be accessible on all the others.
 
-Set the cookie domain for the tracker instance using the `cookieDomain` field of the argmap. If this field is not set, the cookies will not be given a domain.
+It is recommended that you [enable automatic discovery and setting of the root domain](#discoverRootDomain). 
+
+Otherwise, set the cookie domain for the tracker instance using the `cookieDomain` field of the argmap. If this field is not set, the cookies will not be given a domain.
 
 **WARNING**: *Changing the cookie domain will reset all existing cookies. As a result, it might be a major one-time disruption to data analytics because all visitors to the website will receive a new `domain_userid`.*
 
@@ -446,8 +450,6 @@ For instance, if you wish to send several events at once, you might make the API
 
 Note that if `localStorage` is inaccessible or you are not using it to store data, the buffer size will always be 1 to prevent losing events when the user leaves the page.
 
-<a name="cross-domain" />
-
 #### 2.2.17 Configuring cross-domain tracking
 
 The JavaScript Tracker can add an additional parameter named "_sp" to the querystring of outbound links. Its value includes the domain user ID for the current page and the time at which the link was clicked. This makes these values visible in the "url" field of events sent by an instance of the JavaScript Tracker on the destination page. The enrichment process will use these values to populate the `refr_domain_userid` and `refr_dvce_tstamp` fields in Redshift for all events fired on the destination page.
@@ -585,6 +587,8 @@ Note: this will only set the user ID on further events fired while the user is o
 ```javascript
 snowplow_name_here('setUserId', 'joe.blogs@email.com');
 ```
+
+Note: `setUserId` can also be called using the alias `identifyUser`.
 
 <a name="set-user-id-from-location" />
 
@@ -752,6 +756,8 @@ Called _sp_ses.{{DOMAIN HASH}} by default, the only purpose of this cookie is to
 
 If no session cookie is already present when an event fires, the tracker treats this as an indication that long enough has passed since the user last visited that this session should be treated as a new session rather than a continuation of the previous session. The `visitCount` (how many times the user has visited) is increased by one and the `lastVisitTs` (the timestamp for the last session) is updated.
 
+Note: A new session can be started at any time by calling the function `newSession`.
+
 #### The ID cookie
 
 This cookie is called _sp_id.{{DOMAIN HASH}} by default. It is used to persist information about a user's activity on the domain between sessions. It contains the following information:
@@ -800,7 +806,7 @@ If you set a custom `cookieName` field in the argmap, pass that name into the fu
 
 <a name="timestamp" />
 
-### 2.8 Optional timestamp argument
+### 2.9 Optional timestamp argument
 
 Since 2.7.0 each `track...()` method supports an optional timestamp as its final argument; this allows you to manually override the timestamp attached to this event.
 The timestamp should be in milliseconds since the Unix epoch.
@@ -826,7 +832,7 @@ You can also use, plain number or `{type: 'dtm', value: stamp}` to send `device_
 
 <a name="preservePageViewId" />
 
-### 2.9 Preserving pageViewId
+### 2.10 Preserving pageViewId
 
 As explained in [webPage section](#webPage), JS tracker regenerates `webPage` context each time `trackPageView` was called.
 However, before 2.7.0 this was not always the case - `webPage` context was regenerating only when whole HTML page loaded, initialising the tracker.

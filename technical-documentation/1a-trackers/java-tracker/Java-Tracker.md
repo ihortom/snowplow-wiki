@@ -945,14 +945,14 @@ Here are the Emitter builder functions that can be used to make either a `Simple
 
 ```java
 // Simple (GET) Emitter
-Emiter simple = SimpleEmitter.builder()
+Emitter simple = SimpleEmitter.builder()
         .httpClientAdapter( {{ An Adapter }} ) // Required
         .threadCount(20) // Default is 50
         .requestCallback( {{ A callback }} ) // Default is Null
         .build();
 
 // Batch (POST) Emitter
-Emiter batch = BatchEmitter.builder()
+Emitter batch = BatchEmitter.builder()
         .httpClientAdapter( {{ An Adapter }} ) // Required
         .bufferSize(20)  // Default is 50
         .threadCount(20) // Default is 50
@@ -1043,7 +1043,7 @@ HttpClientAdapter adapter = ApacheHttpClientAdapter.builder()
 A buffer is used to group events together in bulk before sending them. This is especially handy to reduce network usage. By default, the Emitter buffers up to 50 events before sending them. You can change this to send events instantly as soon as they are created like so:
 
 ```java
-Emiter batch = BatchEmitter.builder()
+Emitter batch = BatchEmitter.builder()
         .httpClientAdapter( ... )
         .build();
 
@@ -1091,7 +1091,7 @@ RequestCallback callback = new RequestCallback() {
 };
 
 // Attach it to an Emitter
-Emiter e1 = BatchEmitter.builder()
+Emitter e1 = BatchEmitter.builder()
         .httpClientAdapter( ... )
         .requestCallback(callback)
         .build();

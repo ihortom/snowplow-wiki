@@ -25,17 +25,18 @@ You can use this SDK with [Apache Spark](http://spark.apache.org/), [AWS Lambda]
 
 ### 2. Compatibility
 
-Snowplow Scala Analytics SDK was compiled against Scala versions 2.10.6 and 2.11.5, which makes it compatible with applications built for Scala 2.10 and 2.11.
+Snowplow Scala Analytics SDK was compiled against Scala versions 2.10, 2.11 and 2.12.
 Minimum required Java Runtime is JRE7.
 
-Scala Analytics SDK includes Json4s version 3.2.10, which is binary [incompatible][json4s-binary-compat] with Json4s versions included in Spark 2.0 and higher.
+Current version of Scala Analytics SDK includes Json4s version 3.2.11, which is binary [incompatible][json4s-binary-compat] with Json4s versions included in Spark 1.x, though it is fully compatible with Spark 2.x and beyond.
+With Spark 1.x you can use version <= 0.2.0.
 
 
 <a name="setup" />
 
 ### 3. Setup
 
-The latest version of Snowplow Scala Analytics SDK is 0.2.0 and it is available on Maven Central.
+The latest version of Snowplow Scala Analytics SDK is 0.3.0 and it is available on Maven Central.
 
 
 <a name="sbt" />
@@ -46,7 +47,7 @@ If you’re using SBT, add the following lines to your build file:
 
 ```
 // Dependency
-libraryDependencies += "com.snowplowanalytics" %% "snowplow-scala-analytics-sdk" % "0.2.0"
+libraryDependencies += "com.snowplowanalytics" %% "snowplow-scala-analytics-sdk" % "0.3.0"
 ```
 
 Note the double percent (`%%`) between the group and artifactId. This will ensure that you get the right package for your Scala version.
@@ -61,11 +62,11 @@ If you are using Gradle in your own job, then add following lines in your `build
 dependencies {
     ...
     // Snowplow Scala Tracker
-    compile 'com.snowplowanalytics:snowplow-scala-analytics-sdk_2.10:0.2.0'
+    compile 'com.snowplowanalytics:snowplow-scala-analytics-sdk_2.11:0.3.0'
     }
 ```
 
-Note that you need to change `_2.10` to `_2.11` in artifactId if you're using Scala 2.11.
+Note that you need to change `_2.11` to `_2.10` or `_2.12` in artifactId if you're using other Scala versions.
 
 <a name="maven" />
 
@@ -76,12 +77,12 @@ If you are using Maven in your own job, then add following lines in your `pom.xm
 ```xml
 <dependency>
     <groupId>com.snowplowanalytics</groupId>
-    <artifactId>snowplow-scala-analytics-sdk_2.10</artifactId>
-    <version>0.2.0</version>
+    <artifactId>snowplow-scala-analytics-sdk_2.11</artifactId>
+    <version>0.3.0</version>
 </dependency>
 ```
 
-Note that you need to change `_2.10` to `_2.11` in artifactId if you're using Scala 2.11.
+Note that you need to change `_2.11` to `_2.10` or `_2.12` in artifactId if you're using other Scala versions.
 
 Done? Now read the [Scala Analytics SDK API](Scala-Analytics-SDK) to start analyzing events data.
 

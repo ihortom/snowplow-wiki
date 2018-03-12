@@ -298,13 +298,13 @@ s.set_color_depth(32)
 This method lets you pass a user's timezone into Snowplow:
 
 ```python
-s.timezone( {{TIMEZONE}} )
+s.set_timezone( {{TIMEZONE}} )
 ```
 
 The timezone should be a string:
 
 ```python
-s.timezone("Europe/London")
+s.set_timezone("Europe/London")
 ```
 
 [Back to top](#top)

@@ -332,7 +332,7 @@ s.set_lang('en')
 If you have access to the user's IP address, you can set it like this:
 
 ```python
-tracker.set_ip_address('34.633.11.139')
+s.set_ip_address('34.633.11.139')
 ```
 
 <a name="set-useragent" />
@@ -342,7 +342,7 @@ tracker.set_ip_address('34.633.11.139')
 If you have access to the user's useragent (sometimes called "browser string"), you can set it like this:
 
 ```python
-tracker.set_useragent('Mozilla/5.0 (Windows NT 5.1; rv:23.0) Gecko/20100101 Firefox/23.0')
+s.set_useragent('Mozilla/5.0 (Windows NT 5.1; rv:23.0) Gecko/20100101 Firefox/23.0')
 ```
 
 <a name="set-domain-user-id" />
@@ -352,7 +352,7 @@ tracker.set_useragent('Mozilla/5.0 (Windows NT 5.1; rv:23.0) Gecko/20100101 Fire
 The `domain_userid` field of the Snowplow event model corresponds to the ID stored in the first party cookie set by the Snowplow JavaScript Tracker. If you want to match up server-side events with client-side events, you can set the domain user ID for server-side events like this:
 
 ```python
-tracker.set_domain_user_id('c7aadf5c60a5dff9')
+s.set_domain_user_id('c7aadf5c60a5dff9')
 ```
 
 You can extract the domain user ID from the cookies of a request using the `get_domain_user_id` function below.
@@ -383,7 +383,7 @@ If you used the "cookieName" configuration option of the Snowplow JavaScript Tra
 The `network_user_id` field of the Snowplow event model corresponds to the ID stored in the third party cookie set by the Snowplow Clojure Collector. You can set the network user ID for server-side events like this:
 
 ```python
-tracker.set_network_user_id('ecdff4d0-9175-40ac-a8bb-325c49733607')
+s.set_network_user_id('ecdff4d0-9175-40ac-a8bb-325c49733607')
 ```
 
 [Back to top](#top)

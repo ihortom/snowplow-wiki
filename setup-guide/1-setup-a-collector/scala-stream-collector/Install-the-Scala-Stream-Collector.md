@@ -32,10 +32,18 @@ Navigate into the Scala Stream collector folder:
 Use `sbt` to resolve dependencies, compile the source, and build an [assembled][assembly] fat JAR
 file with all dependencies.
 
-	$ sbt assembly
+	$ sbt "project *targeted platform*" assembly
 
-The `jar` file will be saved as `snowplow-scala-collector-0.[version].0.jar` in the
-`target/scala-2.11` subdirectory - it is now ready to be deployed.
+where `targeted platform` can be:
+
+- kinesis
+- pubsub
+- kafka
+- nsq
+- stdout
+
+The `jar` file will be saved as `snowplow-scala-collector-[targeted platform]-[version].jar` in the
+`[targeted platform]/target/scala-2.11` subdirectory - it is now ready to be deployed.
 
 Next: [[Configure the Scala Stream Collector]]
 

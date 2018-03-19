@@ -7,6 +7,7 @@
     - [Install the Scala Stream Collector](Install-the-Scala-Stream-Collector)
     - [Configure the Scala Stream Collector](Configure-the-Scala-Stream-Collector)
     - [Run the Scala Stream Collector](Run-the-Scala-Stream-Collector)
+    - [Setup on GCP guide](GCP:-Setting-up-the-Scala-Stream-Collector)
 2. [Step 2: Setup a Tracker](setting-up-a-tracker)  
 3. [Step 3: Setup Enrich](setting-up-enrich)    
 4. [Step 4: Setup alternative data stores](setting-up-alternative-data-stores)

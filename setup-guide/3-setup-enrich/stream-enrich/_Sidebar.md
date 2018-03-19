@@ -10,6 +10,7 @@
     - [3.2.1: Install Stream Enrich](Install-Stream-Enrich)
     - [3.2.2: Configure Stream Enrich](Configure-Stream-Enrich)
     - [3.2.3: Run Stream Enrich](Run-Stream-Enrich)
+    - [3.2.4: GCP Stream Enrich setup guide](GCP:-Setting-up-Stream-Enrich)
   - [Configurable enrichments](Configurable-enrichments)
 - [Step 4: Setup alternative data stores](setting-up-alternative-data-stores)    
 - [Step 5: Data modeling](getting-started-with-data-modeling)  

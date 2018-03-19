@@ -1,6 +1,6 @@
 [HOME](Home) » [SNOWPLOW SETUP GUIDE](Setting-up-Snowplow) » [Step 1: setup a Collector](Setting-up-a-Collector) » [[Setting up the Scala Stream Collector]] » [[Install the Scala Stream Collector]] » Configure the Scala Stream Collector
 
-**This documentation refers to version 0.12.0 of the Scala Stream Collector**
+**This documentation refers to version 0.12.0 and 0.13.0 of the Scala Stream Collector**
 
 **[Version 0.10.0][v0.10]**
 **[Version 0.11.0][v0.11]**

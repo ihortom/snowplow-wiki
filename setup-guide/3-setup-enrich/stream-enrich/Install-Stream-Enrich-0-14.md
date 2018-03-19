@@ -2,9 +2,8 @@
 
 [HOME](Home) » [SNOWPLOW SETUP GUIDE](Setting-up-Snowplow) » [Step 3: Setting up Enrich](Setting-up-enrich) » [Step 3.2: setting up Stream Enrich](setting-up-stream-enrich) » Install Stream Enrich
 
-**This documentation is for version 0.15.x of Stream Enrich. Documentation for other versions is available:**
+**This documentation is for version 0.11.x to 0.14.x of Stream Enrich. Documentation for other versions is available:**
 
-**[Version 0.11.0-0.14.0][v0.14]**
 **[Version 0.6.0-0.10.0][v0.10]**
 
 ## 1. Dependencies
@@ -39,18 +38,10 @@ Navigate into the Stream Enrich folder:
 Use `sbt` to resolve dependencies, compile the source, and build an [assembled][assembly] fat JAR
 file with all dependencies.
 
-	$ sbt "project [targeted platform]" assembly
+	$ sbt assembly
 
-Where targeted platform can be one of:
-
-- kinesis
-- pubsub
-- kafka
-- nsq
-- stdin
-
-The JAR file will be saved as `snowplow-stream-enrich-[targeted platform]-[version].jar` in the
-`[targeted platform]/target/scala-2.11` subdirectory - it is now ready to be deployed.
+The `jar` file will be saved as `snowplow-stream-enrich-0.13.0.jar` in the `target/scala-2.11`
+subdirectory - it is now ready to be deployed.
 
 Next: [[Configure Stream Enrich]]
 
@@ -58,4 +49,3 @@ Next: [[Configure Stream Enrich]]
 [sbt]: http://www.scala-sbt.org/
 [assembly]: https://github.com/sbt/sbt-assembly
 [v0.10]: https://github.com/snowplow/snowplow/wiki/Install-Stream-Enrich-0-10
-[v0.10]: https://github.com/snowplow/snowplow/wiki/Install-Stream-Enrich-0-14

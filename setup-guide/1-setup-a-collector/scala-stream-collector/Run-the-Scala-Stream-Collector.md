@@ -4,10 +4,18 @@
 
 The Scala Stream Collector is a jarfile. Simply provide the configuration file as a parameter:
 
-    $ java -jar snowplow-stream-collector-0.[version].0.jar --config my.conf
+    $ java -jar snowplow-stream-collector-[targeted platform]-[version].jar --config my.conf
+
+Where `targeted platform` can be one of:
+
+- kinesis
+- google-pubsub
+- kafka
+- nsq
+- stdout
 
 This will start the collector as a HTTP service and write serialized Thrift records to either
-`stdout`, Kinesis or Kafka, depending on your configuration.
+`stdout`, Kinesis, Google PubSub, Kafka or NSQ, depending on the JAR.
 
 ## Healthcheck
 

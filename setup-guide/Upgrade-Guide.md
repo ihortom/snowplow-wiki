@@ -6,6 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
+- [Snowplow 101 Neapolis](#r101) (**r101**) 2018-03-xx
 - [Snowplow 100 Epidaurus](#r100) (**r100**) 2018-02-26
 - [Snowplow 99 Carnac](#r99) (**r99**) 2018-01-25
 - [Snowplow 98 Argentomagus](#r98) (**r98**) 2018-01-05
@@ -64,6 +65,86 @@ For easier navigation, please, follow the links below.
 - [Snowplow 0.9.0](#v0.9.0) (**v0.9.0**) 2014-02-04
 
 
+<a name="r100" />
+
+## Snowplow 101 Neapolis
+
+This release brings initial support for Google Cloud Platform to the realtime pipeline.
+
+### Scala Stream Collector
+
+The latest version of the *Scala Stream Collector* is available from our Bintray [here](https://bintray.com/snowplow/snowplow-generic/snowplow-scala-stream-collector/0.13.0#files).
+
+#### Updating the configuration
+
+```hocon
+collector {
+  # Became non-optional
+  crossDomain {
+    enabled = true # NEW
+    domain = "*"
+    secure = true
+  }
+}
+```
+
+For a complete example, see our sample [`config.hocon`](https://github.com/snowplow/snowplow/blob/r101-neapolis/2-collectors/scala-stream-collector/examples/config.hocon.sample) template.
+
+#### Launching the JAR
+
+This release splits the JARs according to their targeted platform. As a result, you'll need to run
+one of the following depending on your needs:
+
+```bash
+java -jar snowplow-stream-collector-google-pubsub-0.13.0.jar --config config.hocon
+java -jar snowplow-stream-collector-kinesis-0.13.0.jar --config config.hocon
+java -jar snowplow-stream-collector-kafka-0.13.0.jar --config config.hocon
+java -jar snowplow-stream-collector-nsq-0.13.0.jar --config config.hocon
+java -jar snowplow-stream-collector-stdout-0.13.0.jar --config config.hocon
+```
+
+### Stream Enrich
+
+The latest version of *Stream Enrich* is available from our Bintray [here](https://bintray.com/snowplow/snowplow-generic/snowplow-stream-enrich/0.15.0#files).
+
+#### Updating the configuration
+
+```hocon
+enrich {
+  streams {
+    in { ... }                         # UNCHANGED
+    out { ... }                        # UNCHANGED
+    sourceSink {                       # NEW SECTION
+      enabled = kinesis
+      region = eu-west-1
+      aws {
+        accessKey = iam
+        secretKey = iam
+      }
+      maxRecords = 10000
+      initialPosition = TRIM_HORIZON
+      backoffPolicy {
+        minBackoff = 50
+        maxBackoff = 1000
+      }
+    }
+    buffer { ... }                     # UNCHANGED
+    appName = ""                       # UNCHANGED
+  }
+  monitoring { ... }                   # UNCHANGED
+}
+
+```
+
+For a complete example, see our sample [`config.hocon`](https://github.com/snowplow/snowplow/blob/r101-neapolis/3-enrich/stream-enrich/examples/config.hocon.sample) template.
+
+### Read more
+
+* [R101 Blog Post](https://snowplowanalytics.com/blog/2018/03/xx/snowplow-r101-neapolis-released-with-initial-gcp-support/)
+* [R101 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r101-neapolis)
+* [Getting started on GCP guide](https://github.com/snowplow/snowplow/wiki/GCP:-Getting-Started)
+* [Setting up the Scala Stream Collector on GCP guide](https://github.com/snowplow/snowplow/wiki/GCP:-Setting-up-the-Scala-Stream-Collector)
+* [Setting up Stream Enrich on GCP guide](https://github.com/snowplow/snowplow/wiki/GCP:-Setting-up-Stream-Enrich)
 
 <a name="r100" />
 

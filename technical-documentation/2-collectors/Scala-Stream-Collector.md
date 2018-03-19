@@ -10,8 +10,10 @@ The Scala Stream Collector receives raw Snowplow events over HTTP, serializes th
 [Thrift][thrift] record format, and then writes them to a sink. Currently supported sinks are:
 
 1. [Amazon Kinesis][kinesis]
-2. [Apache Kafka][kafka]
-3. `stdout` for a custom stream collection process
+2. [Google PubSub][pubsub]
+3. [Apache Kafka][kafka]
+4. [NSQ][nsq]
+5. `stdout` for a custom stream collection process
 
 Like the Clojure Collector, the Scala Stream Collector supports cross-domain Snowplow deployments,
 setting a `user_id` (used to identify unique visitors) server side to reliably identify the same
@@ -59,4 +61,6 @@ The Scala Stream Collector is built on top of [akka-http][akka-http].
 [thrift]: http://thrift.apache.org/
 
 [kinesis]: http://aws.amazon.com/kinesis/
+[pubsub]: https://cloud.google.com/pubsub/
 [kafka]: http://kafka.apache.org/
+[nsq]: http://nsq.io/

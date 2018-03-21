@@ -6,7 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
-- [Snowplow 101 Neapolis](#r101) (**r101**) 2018-03-xx
+- [Snowplow 101 Neapolis](#r101) (**r101**) 2018-03-21
 - [Snowplow 100 Epidaurus](#r100) (**r100**) 2018-02-26
 - [Snowplow 99 Carnac](#r99) (**r99**) 2018-01-25
 - [Snowplow 98 Argentomagus](#r98) (**r98**) 2018-01-05
@@ -140,7 +140,7 @@ For a complete example, see our sample [`config.hocon`](https://github.com/snowp
 
 ### Read more
 
-* [R101 Blog Post](https://snowplowanalytics.com/blog/2018/03/xx/snowplow-r101-neapolis-released-with-initial-gcp-support/)
+* [R101 Blog Post](https://snowplowanalytics.com/blog/2018/03/21/snowplow-r101-neapolis-released-with-initial-gcp-support/)
 * [R101 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r101-neapolis)
 * [Getting started on GCP guide](https://github.com/snowplow/snowplow/wiki/GCP:-Getting-Started)
 * [Setting up the Scala Stream Collector on GCP guide](https://github.com/snowplow/snowplow/wiki/GCP:-Setting-up-the-Scala-Stream-Collector)

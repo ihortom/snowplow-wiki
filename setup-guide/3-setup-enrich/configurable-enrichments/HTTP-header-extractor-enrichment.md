@@ -13,7 +13,7 @@ Data provider None
 This enrichment allows to capture and store any header from HTTP request sent by website visitor to collector.
 HTTP are stored headers in the Thrift raw event payload by the Scala Stream Collector.
 
-This community-contributed enrichment lets you specify headers that you want to extract if found;
+This community-contributed enrichment lets you specify headers that you want to extract via a regex pattern in the `headersPattern` parameter, if found
 each extracted header will end up a single derived context in the JSON Schema [org.ietf/http_header/jsonschema/1-0-0][http-header-schema].
 
 ### Example

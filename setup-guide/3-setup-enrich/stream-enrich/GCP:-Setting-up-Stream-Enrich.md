@@ -29,16 +29,11 @@ different acknowledgment policies. For more on PubSub go to:
 ![gcloud-enable-pubsub](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-enable-pubsub.png)
 
 - You'll then have to create the topics to which Stream Enrich publishes and subscribes:
-    - Click on the hamburger, on the top left corner
-    - Scroll down until you find "PubSub", under "Big Data"
-
-![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-sidebar.png)
-
-
-    - Create two topics: these will be the good and bad enriched topics.
-
-![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-topics.png)
-
+  - Click on the hamburger, on the top left corner
+  - Scroll down until you find "PubSub", under "Big Data"
+  ![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-sidebar.png)
+  - Create two topics: these will be the good and bad enriched topics.
+  ![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-topics.png)
 
 - Optionally, if you're making use of Datastore to store your resolver and enrichments as shown
 below, you'll need to enable it aswell

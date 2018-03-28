@@ -28,17 +28,17 @@ and with different acknowledgment policies. For more on PubSub go to:
     * Make sure your project is selected (on the navbar, to the left of the search bar)
     * Click Enable
 
-![gcloud-enable-pubsub](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-enable-pubsub.png)
+![gcloud-enable-pubsub](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-enable-pubsub.png)
 
 - You'll then have to create the topics to which the Scala Stream Collector publishes:
     * Click on the hamburger, on the top left corner
     * Scroll down until you find it, under "Big Data"
 
-![gcloud-pubsub-sidebar](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-pubsub-sidebar.png)
+![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-sidebar.png)
 
     * Create two topics: these will be the good and bad raw topics.
 
-![gcloud-pubsub-sidebar](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-pubsub-topics.png)
+![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-topics.png)
 
 <a name="ssc">
 
@@ -89,7 +89,7 @@ There are two ways to do so:
 - Click the hamburger on the top left corner, and select Compute Engine, under Compute
 - Enable billing if you haven't (if you haven't enabled billing, at this point the only option you'll see is a button to do so)
 
-![gcloud-instance-nobilling](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-instance-nobilling.png)
+![gcloud-instance-nobilling](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-nobilling.png)
 
 - Click "Create instance" and pick the apropriate settings for your case, making sure of, at least
 the following:
@@ -99,9 +99,9 @@ the following:
         - Under _Networking_, add a Tag, such as "collector". (This is needed to add a tagged
 Firewall rule, explained below)
 
-![gcloud-instance-create1](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-instance-create1.png)
+![gcloud-instance-create1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-create1.png)
 
-![gcloud-instance-create2](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-instance-create2.png)
+![gcloud-instance-create2](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-create2.png)
 
 - Click the hamburger on the top left corner, and click on "VPC Network", under _Networking_
 - On the sidebar, click on "Firewall rules"
@@ -114,7 +114,7 @@ another port here, make sure you change the config file
 - Under _Target tags_ add the Tag with which you labeled your instance (here `collector`)
 - Click "Create"
 
-![gcloud-firewall](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-firewall.png)
+![gcloud-firewall](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-firewall.png)
 
 ##### 4b-2. via the command line
 
@@ -149,7 +149,7 @@ the config file:
     - Click the hamburger on the top left corner and find Storage, under _Storage_
     - Create a bucket
 
-![gcloud-storage1](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-storage1.png)
+![gcloud-storage1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-storage1.png)
 
     - Then click "Upload Files" and upload your configuration file
 
@@ -195,7 +195,7 @@ like Google Cloud Storage. We suggest you store it in a GCP Storage bucket, as d
     - Under _Access scopes_, select "Set access for each API" and enable "Cloud PubSub"
     - Under _Firewall_, select "Allow HTTP traffic"
     - Click _Management, disk, networking, SSH keys_
-![gcloud-instance-template1](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-instance-template1.png)
+![gcloud-instance-template1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-template1.png)
     - Under _Networking_, add a tag, such as "collector". (This is needed to add a Firewall rule)
     - Under _Management_ "Startup script" add the following script (changing the relevant fields for
 your case):
@@ -212,7 +212,7 @@ unzip $archive
 java -jar snowplow-stream-collector-google-pubsub-<VERSION>.jar --config <YOUR-CONFIG-FILE-NAME> &
 ```
 
-![gcloud-instance-template2](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-instance-template2.png)
+![gcloud-instance-template2](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-template2.png)
 
 - Click "Create"
 - Add a Firewall rule as described above (if you haven't already)
@@ -252,9 +252,9 @@ settings. We'll leave them as they are for now.
     * Click "Save and Continue"
 - Click "Create"
 
-![gcloud-group-create1](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-group-create1.png)
+![gcloud-group-create1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-group-create1.png)
 
-![gcloud-group-create2](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-group-create2.png)
+![gcloud-group-create2](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-group-create2.png)
 
 ###### via command-line
 
@@ -283,7 +283,7 @@ $ gcloud compute --project "example-project-156611" instance-groups managed set-
 - Click "Create load balancer"
 - Select "HTTP load balancing" and click "Start configuration"
 
-[[images/gcloud/gcloud-load-balancer1.png]]
+![gcloud-load-balancer1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-load-balancer1.png)
 
 - Under _Backend configuration_:
     * Click "Create a backend service"

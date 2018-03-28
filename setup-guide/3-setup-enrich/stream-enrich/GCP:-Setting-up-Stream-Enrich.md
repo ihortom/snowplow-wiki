@@ -26,17 +26,17 @@ different acknowledgment policies. For more on PubSub go to:
     * Make sure your project is selected (on the navbar, to the left of the search bar)
     * Click Enable
 
-![gcloud-enable-pubsub](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-enable-pubsub.png)
+![gcloud-enable-pubsub](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-enable-pubsub.png)
 
 - You'll then have to create the topics to which Stream Enrich publishes and subscribes:
     * Click on the hamburger, on the top left corner
     * Scroll down until you find "PubSub", under "Big Data"
 
-![gcloud-pubsub-sidebar](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-pubsub-sidebar.png)
+![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-sidebar.png)
 
     * Create two topics: these will be the good and bad enriched topics.
 
-![gcloud-pubsub-sidebar](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-pubsub-topics.png)
+![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-topics.png)
 
 <a name="se">
 
@@ -52,9 +52,9 @@ property. To add, for example, the Iglu resolver, go to
 Entity", fill in its Kind (we use "resolver") and introduce its name manually, or take note of the
 auto-generated one after you click "Create".
 
-![iglu-resolver](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/iglu_resolver.png)
+![iglu-resolver](https://github.com/snowplow/snowplow/wiki/images/gcloud/iglu_resolver.png)
 
-![iglu-resolver2](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/iglu_resolver2.png)
+![iglu-resolver2](https://github.com/snowplow/snowplow/wiki/images/gcloud/iglu_resolver2.png)
 
 Then, when running the project, pass the resolver parameter as:
 `--resolver datastore:yourProjectId/resolver/resolver_name_or_id`.
@@ -105,14 +105,14 @@ sure your project is selected.
 - Enable billing if you haven't (if you haven't enabled billing, at this point the only option
 you'll see is a button to do so)
 
-![gcloud-instance-nobilling](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-instance-nobilling.png)
+![gcloud-instance-nobilling](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-nobilling.png)
 
 - Click "Create instance" and pick the apropriate settings for your case, making sure of, at least the following:
     * Under _Access scopes_, select "Set access for each API" and enable "Cloud PubSub"
 
-![gcloud-instance-create1](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-instance-create1.png)
+![gcloud-instance-create1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-create1.png)
 
-![gcloud-instance-create2](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-instance-create2.png)
+![gcloud-instance-create2](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-create2.png)
 
 ##### 4b-2. via command line
 
@@ -141,7 +141,7 @@ the config file:
     - Click the hamburger on the top left corner and find Storage, under _Storage_
     - Create a bucket
 
-![gcloud-storage1](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-storage1.png)
+![gcloud-storage1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-storage1.png)
 
     - Then click "Upload Files" and upload your configuration file
 

@@ -31,14 +31,11 @@ and with different acknowledgment policies. For more on PubSub go to:
 ![gcloud-enable-pubsub](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-enable-pubsub.png)
 
 - You'll then have to create the topics to which the Scala Stream Collector publishes:
-    * Click on the hamburger, on the top left corner
-    * Scroll down until you find it, under "Big Data"
-
-![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-sidebar.png)
-
-    * Create two topics: these will be the good and bad raw topics.
-
-![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-topics.png)
+  * Click on the hamburger, on the top left corner
+  * Scroll down until you find it, under "Big Data"
+  ![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-sidebar.png)
+  * Create two topics: these will be the good and bad raw topics.
+  ![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-topics.png)
 
 <a name="ssc">
 
@@ -150,7 +147,6 @@ the config file:
     - Create a bucket
 ![gcloud-storage1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-storage1.png)
     - Then click "Upload Files" and upload your configuration file
-
 
 Once you have your config file in place, ssh into your instance:
 

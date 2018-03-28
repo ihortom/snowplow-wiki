@@ -138,11 +138,10 @@ To place the above mentioned files in the instance (config file and the stream e
 - For the jar, you'll `wget` it from Bintray into the instance directly;
 - For the config file, store it using GCP Storage and then download it into the instance. To store
 the config file:
-    - Click the hamburger on the top left corner and find Storage, under _Storage_
-    - Create a bucket
-
-![gcloud-storage1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-storage1.png)
-    - Then click "Upload Files" and upload your configuration file
+  - Click the hamburger on the top left corner and find Storage, under _Storage_
+  - Create a bucket
+  ![gcloud-storage1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-storage1.png)
+  - Then click "Upload Files" and upload your configuration file
 
 Once you have your config file in place, ssh into your instance:
 

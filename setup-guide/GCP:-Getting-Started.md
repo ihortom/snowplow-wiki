@@ -14,7 +14,7 @@
 To get started with Google Cloud, first go to <https://console.cloud.google.com/cloud-resource-manager>
 and create a new project.
 
-[[images/gcloud/gcloud-create-project.png]]
+![gcloud-create](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-create-project.png)
 
 <a name="api-enabling">
 
@@ -35,7 +35,7 @@ want to make sure Google Compute Engine API is enabled.
 account with which to associate your project. If it doesn't, Billing was enabled by default when you
 created your project, probably because you have only one active billing account.
 
-[[images/gcloud/gcloud-enable-billing.png]]
+![gcloud-enable-billing](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-enable-billing.png)
 
 <a name="gcloud-sdk">
 
@@ -61,7 +61,7 @@ which multilple people have access. In that case, it is recommended to use a ser
 - Compute Instances come with a default service account, but you can create more, with different
 privileges and different purposes.  
 
-[[images/gcloud/gcloud-credentials.png]]
+![gcloud-credentials](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-credentials.png)
 
 On this page, you can create credentials for your existing accounts. If you don't have a service
 account: 
@@ -72,7 +72,7 @@ pick "New service account".
 occasion in which this file can be downloaded, so save it carefully. You'll need to place this file
 wherever you need this service account to be able to authenticate.  
 
-[[images/gcloud/gcloud-service-account.png]]
+![gcloud-service-account](https://github.com/snowplow/iglu/wiki/technical-documentation/images/gcloud/gcloud-service-account.png)
 
 You can also use the SDK to authenticate (if you want to authenticate with your personal account),
 doing:
@@ -87,4 +87,4 @@ to change the current project, do:
 Every gcloud command can be appended with '--help' for more info. For more detailed information on
 Service Accounts: <https://developers.google.com/identity/protocols/OAuth2ServiceAccount>
 
-Next: [Setting up the Scala Stream Collector on GCP](https://github.com/snowplow/snowplow/wiki/Snowplow-on-Google-Cloud:-Setting-up-the-Scala-Stream-Collector)
+Next: [Setting up the Scala Stream Collector on GCP](https://github.com/snowplow/snowplow/wiki/GCP:-Setting-up-the-Scala-Stream-Collector)

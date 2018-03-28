@@ -29,13 +29,17 @@ different acknowledgment policies. For more on PubSub go to:
 ![gcloud-enable-pubsub](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-enable-pubsub.png)
 
 - You'll then have to create the topics to which Stream Enrich publishes and subscribes:
-    * Click on the hamburger, on the top left corner
-    * Scroll down until you find "PubSub", under "Big Data"
+    - Click on the hamburger, on the top left corner
+    - Scroll down until you find "PubSub", under "Big Data"
 
 ![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-sidebar.png)
-    * Create two topics: these will be the good and bad enriched topics.
+
+
+    - Create two topics: these will be the good and bad enriched topics.
 
 ![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-topics.png)
+
+
 - Optionally, if you're making use of Datastore to store your resolver and enrichments as shown
 below, you'll need to enable it aswell
 
@@ -53,9 +57,9 @@ property. To add, for example, the Iglu resolver, go to
 Entity", fill in its Kind (we use "resolver") and introduce its name manually, or take note of the
 auto-generated one after you click "Create".
 
-![iglu-resolver](https://github.com/snowplow/snowplow/wiki/images/gcloud/iglu_resolver.png)
+![iglu-resolver](https://github.com/snowplow/snowplow/wiki/images/gcloud/iglu-resolver.png)
 
-![iglu-resolver2](https://github.com/snowplow/snowplow/wiki/images/gcloud/iglu_resolver2.png)
+![iglu-resolver2](https://github.com/snowplow/snowplow/wiki/images/gcloud/iglu-resolver2.png)
 
 Then, when running the project, pass the resolver parameter as:
 `--resolver datastore:yourProjectId/resolver/resolver_name_or_id`.

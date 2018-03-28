@@ -33,10 +33,11 @@ different acknowledgment policies. For more on PubSub go to:
     * Scroll down until you find "PubSub", under "Big Data"
 
 ![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-sidebar.png)
-
     * Create two topics: these will be the good and bad enriched topics.
 
 ![gcloud-pubsub-sidebar](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-pubsub-topics.png)
+- Optionally, if you're making use of Datastore to store your resolver and enrichments as shown
+below, you'll need to enable it aswell
 
 <a name="se">
 
@@ -142,7 +143,6 @@ the config file:
     - Create a bucket
 
 ![gcloud-storage1](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-storage1.png)
-
     - Then click "Upload Files" and upload your configuration file
 
 Once you have your config file in place, ssh into your instance:

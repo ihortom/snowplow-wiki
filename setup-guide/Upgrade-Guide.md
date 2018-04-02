@@ -6,6 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
+- [Snowplow 103 Paestum](#r101) (**r103**) 2018-04-xx
 - [Snowplow 102 Afontova Gora](#r102) (**r102**) 2018-04-03
 - [Snowplow 101 Neapolis](#r101) (**r101**) 2018-03-21
 - [Snowplow 100 Epidaurus](#r100) (**r100**) 2018-02-26
@@ -65,6 +66,57 @@ For easier navigation, please, follow the links below.
 - [Snowplow 0.9.1](#v0.9.1) (**v0.9.1**) 2014-04-11
 - [Snowplow 0.9.0](#v0.9.0) (**v0.9.0**) 2014-02-04
 
+<a name="r103" />
+
+## Snowplow 103 Paestum
+
+This release upgrades the IP lookups enrichment.
+
+### IP lookups enrichment upgrade
+
+Whether you are using the batch or streaming pipeline, it is important to perform this upgrade if
+you make use of the IP lookups enrichment.
+
+To make use of the new enrichment, you will need to update your `ip_lookups.json` so that it
+conforms to [the new `2-0-0` schema](https://github.com/snowplow/iglu-central/blob/master/schemas/com.snowplowanalytics.snowplow/ip_lookups/jsonschema/2-0-0).
+An example is provided in [the GitHub repository](https://github.com/snowplow/snowplow/blob/r103-paestum/3-enrich/config/enrichments/ip_lookups.json).
+
+#### Stream Enrich
+
+If you are a streaming pipeline user, a version of Stream Enrich incorporating the upgraded ip
+lookups enrichment can be found on our Bintray [here](https://bintray.com/snowplow/snowplow-generic/snowplow-stream-enrich/0.16.0#files).
+
+#### Spark Enrich
+
+If you are a batch pipeline user, you'll need to either update your EmrEtlRunner configuration
+to the following:
+
+{% highlight yaml %}
+enrich:
+  version:
+    spark_enrich: 1.13.0 # WAS 1.12.0
+{% endhighlight %}
+
+or directly make use of the new Spark Enrich available at:
+`s3://snowplow-hosted-assets/3-enrich/spark-enrich/snowplow-spark-enrich-1.13.0.jar`.
+
+### Clojure Collector
+
+The new Clojure Collector is stored in S3 at:
+`s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-1.2.0-standalone.war`.
+
+By default, he `/crossdomain.xml` route is disabled - it will have to be manually re-enabled by
+adding the two following environment properties to your Elastic Beanstalk application:
+
+- `SP_CDP_DOMAIN`: the domain that is granted access, `*.acme.com` will match both `http://acme.com`
+and `http://sub.acme.com`.
+- `SP_CDP_SECURE`: a boolean indicating whether to only grant access to HTTPS or both HTTPS and
+HTTP sources
+
+### Read more
+
+* [R103 Blog Post](https://snowplowanalytics.com/blog/2018/04/xx/snowplow-r103-paestum-released-with-ip-lookups-enrichment-upgrade/)
+* [R103 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r103-paestum)
 
 <a name="r102" />
 

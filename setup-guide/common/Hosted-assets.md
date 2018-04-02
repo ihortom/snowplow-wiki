@@ -34,7 +34,7 @@ The minified JavaScript tracker is hosted on CloudFront against its full semanti
 
 The Clojure Collector packaged as a complete WAR file, ready for Amazon Elastic Beanstalk, is here:
 
-    s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-1.1.0-standalone.war
+    s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-1.2.0-standalone.war
 
 Right-click on this [Download link][cc-download] to save it down locally via CloudFront CDN.
 
@@ -58,7 +58,7 @@ Choose an artifact according to the supported targeted platform:
 The Spark Enrich process uses a single jarfile containing the Spark job. This is made available in a
 public Amazon S3 bucket, for Snowplowers who are running their Spark Enrich process on Amazon EMR:
 
-    s3://snowplow-hosted-assets/3-enrich/spark-enrich/snowplow-spark-enrich-1.12.0.jar
+    s3://snowplow-hosted-assets/3-enrich/spark-enrich/snowplow-spark-enrich-1.13.0.jar
 
 Right-click on this [Download link][spark-enrich-download] to save it down locally via CloudFront CDN.
 
@@ -74,7 +74,7 @@ Right-click on this [Download link][hadoop-event-recovery-download] to save it d
 
 The Stream Enrich app is available on Bintray here:
 
-    https://bintray.com/snowplow/snowplow-generic/snowplow-stream-enrich/0.15.0#files
+    https://bintray.com/snowplow/snowplow-generic/snowplow-stream-enrich/0.16.0#files
 
 Choose an artifact according to the supported targeted platform:
 
@@ -149,8 +149,8 @@ As well as these hosted assets for running Snowplow, the Snowplow Analytics team
 Please see the [[Artifact repositories]] wiki page for more information.
 
 [snowplow-repo]: https://github.com/snowplow/snowplow
-[cc-download]: http://d2io1hx8u877l0.cloudfront.net/2-collectors/clojure-collector/clojure-collector-1.1.0-standalone.war
-[spark-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/spark-enrich/snowplow-spark-enrich-1.12.0.jar
+[cc-download]: http://d2io1hx8u877l0.cloudfront.net/2-collectors/clojure-collector/clojure-collector-1.2.0-standalone.war
+[spark-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/spark-enrich/snowplow-spark-enrich-1.13.0.jar
 [rdb-download]: http://d2io1hx8u877l0.cloudfront.net/4-storage/rdb-shredder/snowplow-rdb-shredder-0.13.0.jar
 [hadoop-event-recovery-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/hadoop-event-recovery/snowplow-hadoop-event-recovery-0.2.0.jar
 [glc-download]: http://d2io1hx8u877l0.cloudfront.net/third-party/maxmind/GeoLiteCity.dat

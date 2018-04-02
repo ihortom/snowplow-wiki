@@ -48,6 +48,20 @@ If no value is provided, cookies set the default to expiring after one year (i.e
 
 If you set the value to `0`, the cookie will not be set at all.
 
+#### 5. Setting the cross domain policy
+
+To get to know what a cross domain policy is, refer to [this spec](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).
+
+By default, the `/crossdomain.xml` route is disabled - it will have to be manually re-enabled by
+filling two additional environment properties.
+
+Setting *Property Name* to either **PARAM5** or **SP_CDP_DOMAIN** will set the domain that is
+granted access to the specified value, setting it to `*.acme.com` will match both `http://acme.com`
+and `http://sub.acme.com`.
+
+Setting *Property Name* to either **PARAM6** or **SP_CDP_SECURE** will set whether to only grant
+access to HTTPS or both HTTPS and HTTP sources. Accepted values are `true` or `false`.
+
 Below is the summary of what parameter names are to be used and their purpose.
 
 Parameter Name | Alternative Name | Parameter Use
@@ -56,6 +70,9 @@ SP_ENV | PARAM1 | Setting the environment type of your application
 SP_P3P | PARAM2 | Setting the P3P policy header
 SP_DOMAIN | PARAM3 | Setting the cookie domain name
 SP_DURATION | PARAM4 | Setting the cookie duration
+SP_CDP_DOMAIN | PARAM5 | Domain that is granted access
+S_CDP_SECURE | PARAM6 | Boolean indicating whether to only grant access to HTTPS or both HTTPS and
+HTTP sources
 
 #### 5. Auto scaling
 

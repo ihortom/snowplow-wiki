@@ -6,6 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
+- [Snowplow 102 Afontova Gora](#r102) (**r102**) 2018-04-03
 - [Snowplow 101 Neapolis](#r101) (**r101**) 2018-03-21
 - [Snowplow 100 Epidaurus](#r100) (**r100**) 2018-02-26
 - [Snowplow 99 Carnac](#r99) (**r99**) 2018-01-25
@@ -65,7 +66,31 @@ For easier navigation, please, follow the links below.
 - [Snowplow 0.9.0](#v0.9.0) (**v0.9.0**) 2014-02-04
 
 
-<a name="r100" />
+<a name="r102" />
+
+## Snowplow 102 Afontova Gora
+
+This release brings stability imporovements and new "Stream Enrich" mode to EmrEtlRunner.
+
+### Upgrading EmrEtlRunner
+
+The latest version of the *EmrEtlRunner* is available from our Bintray [here](http://dl.bintray.com/snowplow/snowplow-generic/snowplow_emr_r102_afontova_gora.zip).
+
+### Upgrading for Lambda architecture users
+
+To turn this mode on, you need to add a new `aws.s3.buckets.enriched.stream` property to your `config.yml` file.
+
+{% highlight yaml %}
+aws:
+  s3:
+    buckets:
+      enriched:
+        stream: s3://path-to-kinesis/output/
+{% endhighlight %}
+
+For a complete example, we now have a dedicated sample [stream_config.yml][stream-config-yml] template - this shows what you need to set, and what you can remove.
+
+<a name="r101" />
 
 ## Snowplow 101 Neapolis
 
@@ -2914,5 +2939,6 @@ No upgrade steps as the release introduces the whole "new" concept. If you want 
 
 
 [config-yml]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/config/config.yml.sample
+[stream-config-yml]: https://github.com/snowplow/snowplow/blob/master/3-enrich/emr-etl-runner/config/stream_config.yml.sample
 [migrate-postgre-sql]: https://github.com/snowplow/snowplow/tree/master/4-storage/postgres-storage/sql
 [migrate-redshift-sql]: https://github.com/snowplow/iglu-central/tree/master/sql

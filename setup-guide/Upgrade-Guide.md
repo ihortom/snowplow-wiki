@@ -80,13 +80,13 @@ The latest version of the *EmrEtlRunner* is available from our Bintray [here](ht
 
 To turn this mode on, you need to add a new `aws.s3.buckets.enriched.stream` property to your `config.yml` file.
 
-{% highlight yaml %}
+```yaml
 aws:
   s3:
     buckets:
       enriched:
         stream: s3://path-to-kinesis/output/
-{% endhighlight %}
+```
 
 For a complete example, we now have a dedicated sample [stream_config.yml][stream-config-yml] template - this shows what you need to set, and what you can remove.
 

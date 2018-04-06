@@ -1,6 +1,6 @@
 <a name="top" />
 
-[**HOME**](Home) > [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) > [Step 3: Setting up Enrich](Setting-up-enrich) > Configurable enrichments > API Request enrichment
+[**HOME**](Home) » [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) » [Step 3: Setting up Enrich](Setting-up-enrich) » Configurable enrichments » API Request enrichment
 
 ### Compatibility
 
@@ -182,10 +182,10 @@ A Snowplow enrichment can run many millions of time per hour, effectively launch
 
 The cache is an LRU (least-recently used) cache, where less frequently accessed values are evicted to make space for new values. The `uri` with all keys populated is used as the key in the cache. Configure the `cache` as follows:
 
-* `size` is the maximum number of entries to hold in the cache at any one time
+* `size` is the maximum number of entries to hold in the cache at any one time (minimum value for is `1`)
 * `ttl` is the number of seconds that an entry can stay in the cache before it is forcibly evicted. This is useful to prevent stale values from being retrieved in the case that your API can return different values for the same key over time.
 
-To disable `ttl` so keys could be stored in cache until job is done `0` value should be used.
+To disable `ttl` so keys could be stored in cache until job is done `0` value should be used. 
 
 ### Data sources
 

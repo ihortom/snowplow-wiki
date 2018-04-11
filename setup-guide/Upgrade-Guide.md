@@ -90,6 +90,11 @@ aws:
 
 For a complete example, we now have a dedicated sample [stream_config.yml][stream-config-yml] template - this shows what you need to set, and what you can remove.
 
+### Read more
+
+* [R102 Blog Post](https://snowplowanalytics.com/blog/2018/04/03/snowplow-r102-afontova-gora-with-emretlrunner-improvements/)
+* [R102 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r102-afontova-gora)
+
 <a name="r101" />
 
 ## Snowplow 101 Neapolis

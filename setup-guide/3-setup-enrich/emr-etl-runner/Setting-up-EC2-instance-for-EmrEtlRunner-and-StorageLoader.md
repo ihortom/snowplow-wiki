@@ -95,6 +95,6 @@ $ aws ec2 describe-instances \
 Fill-in `{{ PUBLIC_IP }}` from previous step.
 
 ```sh
-$ ssh -i ~/.ssh/aws-ec2.pem ec2-user@{{ PUBLIC_IP }}
+$ ssh -i ~/.ssh/snowplow-ec2.pem ec2-user@{{ PUBLIC_IP }}
 ```
 

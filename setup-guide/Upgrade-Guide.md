@@ -6,7 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
-- [Snowplow 103 Paestum](#r101) (**r103**) 2018-04-xx
+- [Snowplow 103 Paestum](#r103) (**r103**) 2018-04-17
 - [Snowplow 102 Afontova Gora](#r102) (**r102**) 2018-04-03
 - [Snowplow 101 Neapolis](#r101) (**r101**) 2018-03-21
 - [Snowplow 100 Epidaurus](#r100) (**r100**) 2018-02-26
@@ -103,7 +103,7 @@ or directly make use of the new Spark Enrich available at:
 ### Clojure Collector
 
 The new Clojure Collector is stored in S3 at:
-`s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-1.2.0-standalone.war`.
+`s3://snowplow-hosted-assets/2-collectors/clojure-collector/clojure-collector-2.0.0-standalone.war`.
 
 By default, he `/crossdomain.xml` route is disabled - it will have to be manually re-enabled by
 adding the two following environment properties to your Elastic Beanstalk application:
@@ -115,7 +115,7 @@ HTTP sources
 
 ### Read more
 
-* [R103 Blog Post](https://snowplowanalytics.com/blog/2018/04/xx/snowplow-r103-paestum-released-with-ip-lookups-enrichment-upgrade/)
+* [R103 Blog Post](https://snowplowanalytics.com/blog/2018/04/17/snowplow-r103-paestum-released-with-ip-lookups-enrichment-upgrade/)
 * [R103 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r103-paestum)
 
 <a name="r102" />

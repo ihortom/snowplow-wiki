@@ -4,31 +4,28 @@
 
 ### Compatibility
 
-JSON Schema   [iglu:com.snowplowanalytics.snowplow/ip_lookups/jsonschema/2-0-0][schema]
-Compatibility R103
+JSON Schema   [iglu:com.snowplowanalytics.snowplow/ip_lookups/jsonschema/1-0-0][schema]
+Compatibility 0.9.6+
 Data provider [MaxMind][maxmind]
 
 ### Overview
 
 This enrichment uses MaxMind databases to look up useful data based on a user's IP address.
 
-There are five possible fields you can add to the "parameters" section of the enrichment
-configuration JSON: "geo", "isp", "domain", and "connectionType". Each of these corresponds to
-looking up information one of five MaxMind databases, and so needs to have two inner fields:
+There are five possible fields you can add to the "parameters" section of the enrichment configuration JSON: "geo", "isp", "organization", "domain", and "netspeed". Each of these corresponds to looking up information one of five MaxMind databases, and so needs to have two inner fields:
 
 * The `database` field contains the name of the database file.
 * The `uri` field contains the URI of the bucket in which the database file is found. Can have either http: (for publically available MaxMind files) or s3: (for commercial MaxMind files) as the scheme. Must *not* end with a trailing slash.
 
-The below table describes the five types of lookup. This version of the enrichment only works with
-the new binary formats (.MMDB) which you should have access to with any subscription to
-[MaxMind][maxmind].
+The below table describes the five types of lookup. Note Snowplow only works with the legacy binary formats (.DAT) which you should have access to with any subscription to [MaxMind][maxmind].
 
 | **Field name**   | **MaxMind Database name**     | **Lookup description**                             | **Accepted database filenames**                   | **Fields populated** |
 |-----------------:|:------------------------------|:---------------------------------------------------|:--------------------------------------------------|:---------------------|
-| `"geo"`          | [GeoIP2 City][geoip2-city] or [GeoLite2 City][geolite2-city] | Information related to geographic location         | `"GeoLite2-City.mmdb"` or `"GeoIP2-City.mmdb"`           | `geo_country`, `geo_region`, `geo_city`, `geo_zipcode`, `geo_latitude`, `geo_longitude`, and `geo_region_name` |
-| `"isp"`          | [GeoIP2 ISP][geoip2-isp]                   | Internet Service Provider                          | `"GeoIP2-ISP.mmdb"`                                  | `ip_isp`          |
-| `"domain"`       | [GeoIP2 Domain][geoip2-domain]                | Second level domain name associated with IP address | `"GeoIP2-Domain.mmdb"`                               | `ip_domain`       |
-| `"connectionType"`     | [GeoIP2 Connection Type][geoip2-connection-type]              | Estimated connection type                         | `"GeoIP2-Connection-Type.mmdb"` | `ip_netspeed`     |
+| `"geo"`          | [GeoIPCity][geoipcity] or [GeoLiteCity][geolitecity] | Information related to geographic location         | `"GeoLiteCity.dat"` or `"GeoIPCity.dat"`           | `geo_country`, `geo_region`, `geo_city`, `geo_zipcode`, `geo_latitude`, `geo_longitude`, and `geo_region_name` |
+| `"isp"`          | [GeoIP ISP][geoipisp]                   | Internet Service Provider                          | `"GeoIPISP.dat"`                                  | `ip_isp`          |
+| `"organization"` | [GeoIP Organization][geoiporg]          | Organization name for larger networks              | `"GeoIPOrg.dat"`                                  | `ip_organization` |
+| `"domain"`       | [GeoIP Domain][geoipdomain]                | Second level domain name associated with IP address | `"GeoIPDomain.dat"`                               | `ip_domain`       |
+| `"netspeed"`     | [GeoIP Netspeed][geoipnetspeed]              | Estimated connection speed                         | `"GeoIPNetSpeed.dat"` or `"GeoIPNetSpeedCell.dat"` | `ip_netspeed`     |
 
 **Field name** is the name of the field in the ip_lookups enrichment configuration JSON which you should include if you wish to use that type of lookup. That field should have two subfields: "uri" and "database".
 
@@ -48,7 +45,7 @@ Here is a maximalist example configuration JSON, which performs all five types o
 
 ```json
 {
-	"schema": "iglu:com.snowplowanalytics.snowplow/ip_lookups/jsonschema/2-0-0",
+	"schema": "iglu:com.snowplowanalytics.snowplow/ip_lookups/jsonschema/1-0-0",
 
 	"data": {
 
@@ -57,19 +54,23 @@ Here is a maximalist example configuration JSON, which performs all five types o
 		"enabled": true,
 		"parameters": {
 			"geo": {
-				"database": "GeoIP2-City.mmdb",
+				"database": "GeoIPCity.dat",
 				"uri": "s3://my-private-bucket/third-party/maxmind"
 			},
 			"isp": {
-				"database": "GeoIP2-ISP.mmdb",
+				"database": "GeoIPISP.dat",
+				"uri": "s3://my-private-bucket/third-party/maxmind"
+			},
+			"organization": {
+				"database": "GeoIPOrg.dat",
 				"uri": "s3://my-private-bucket/third-party/maxmind"
 			},
 			"domain": {
-				"database": "GeoIP2-Domain.mmdb",
+				"database": "GeoIPDomain.dat",
 				"uri": "s3://my-private-bucket/third-party/maxmind"
 			},
-			"connectionType": {
-				"database": "GeoIP2-Connection-Type.mmdb",
+			"netspeed": {
+				"database": "GeoIPNetSpeedCell.dat",
 				"uri": "s3://my-private-bucket/third-party/maxmind"
 			}
 		}
@@ -77,11 +78,11 @@ Here is a maximalist example configuration JSON, which performs all five types o
 }
 ```
 
-Here is a simpler example configuration with the free files:
+Here is a simpler example configuration (which exactly duplicates the behaviour of Snowplow 0.9.5):
 
 ```json
 {
-	"schema": "iglu:com.snowplowanalytics.snowplow/ip_lookups/jsonschema/2-0-0",
+	"schema": "iglu:com.snowplowanalytics.snowplow/ip_lookups/jsonschema/1-0-0",
 
 	"data": {
 
@@ -90,7 +91,7 @@ Here is a simpler example configuration with the free files:
 		"enabled": true,
 		"parameters": {
 			"geo": {
-				"database": "GeoLite2-City.mmdb",
+				"database": "GeoLiteCity.dat",
 				"uri": "http://snowplow-hosted-assets.s3.amazonaws.com/third-party/maxmind"
 			}
 		}
@@ -98,7 +99,7 @@ Here is a simpler example configuration with the free files:
 }
 ```
 
-This example uses the free GeoLite2-City database hosted by Snowplow.
+This example uses the free GeoLiteCity database hosted by Snowplow.
 
 ### Data sources
 
@@ -106,7 +107,7 @@ The only input value for this enrichment comes from `ip` parameter, which maps t
 
 ### Algorithm
 
-This enrichment uses 3rd party, [MaxMind][maxmind], service to look up data associated with the IP address. MaxMind offer industry-leading IP intelligence data updated monthly.
+This enrichment uses 3rd party, [MaxMind][maxmind], service to look up data associated with the IP address. MaxMind offer industry-leading IP intelligence data updated weekly.
 
 ### Data generated
 
@@ -127,10 +128,11 @@ Field | Purpose
 `ip_netspeed` | Indication of connection type (dial-up, cellular, cable/DSL)
 
 
-[schema]: http://iglucentral.com/schemas/com.snowplowanalytics.snowplow/ip_lookups/jsonschema/2-0-0
+[schema]: http://iglucentral.com/schemas/com.snowplowanalytics.snowplow/ip_lookups/jsonschema/1-0-0
 [maxmind]: https://www.maxmind.com/en/home
-[geoip2-city]: https://www.maxmind.com/en/geoip2-city?rld=snowplow
-[geolite2-city]: https://dev.maxmind.com/geoip/geoip2/geolite2/?rld=snowplow
-[geoip2-isp]: https://www.maxmind.com/en/geoip2-isp-database?rld=snowplow
-[geoip2-domain]: https://www.maxmind.com/en/geoip2-domain-name-database?rld=snowplow
-[geoip2-connection-type]: https://www.maxmind.com/en/geoip2-connection-type-database?rld=snowplow
+[geoipcity]: https://www.maxmind.com/en/geoip2-city?rld=snowplow
+[geolitecity]: http://dev.maxmind.com/geoip/legacy/geolite/?rld=snowplow
+[geoipisp]: https://www.maxmind.com/en/isp?rld=snowplow
+[geoiporg]: https://www.maxmind.com/en/organization?rld=snowplow
+[geoipdomain]: https://www.maxmind.com/en/domain?rld=snowplow
+[geoipnetspeed]: https://www.maxmind.com/en/netspeed?rld=snowplow

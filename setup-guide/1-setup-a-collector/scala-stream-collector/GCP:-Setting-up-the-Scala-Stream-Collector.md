@@ -206,8 +206,6 @@ unzip $archive
 java -jar snowplow-stream-collector-google-pubsub-<VERSION>.jar --config <YOUR-CONFIG-FILE-NAME> &
 ```
 
-![gcloud-instance-template2](https://github.com/snowplow/snowplow/wiki/images/gcloud/gcloud-instance-template2.png)
-
 - Click "Create"
 - Add a Firewall rule as described above (if you haven't already)
 

@@ -91,11 +91,11 @@ lookups enrichment can be found on our Bintray [here](https://bintray.com/snowpl
 If you are a batch pipeline user, you'll need to either update your EmrEtlRunner configuration
 to the following:
 
-{% highlight yaml %}
+```yaml
 enrich:
   version:
     spark_enrich: 1.13.0 # WAS 1.12.0
-{% endhighlight %}
+```
 
 or directly make use of the new Spark Enrich available at:
 `s3://snowplow-hosted-assets/3-enrich/spark-enrich/snowplow-spark-enrich-1.13.0.jar`.

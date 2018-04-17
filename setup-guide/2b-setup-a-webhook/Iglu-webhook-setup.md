@@ -145,12 +145,15 @@ http://snplow.acme.com/com.snowplowanalytics.iglu/v1?schema=iglu%3Acom.acme%2Fca
 }'
 ```
 
-As with the `GET` request above you can also attach extra information into the querystring to help describe your event.  Such as:
+As with the `GET` request above you can also attach extra information into the querystring to help describe your event.  The following parameters can be added:
 
-* `aid=` : The Application ID
+* `aid=` : The application ID
 * `p=` : The platform
-* `nuid=` : The Network User ID
+* `nuid=` : The network user ID
 * `eid=` : A custom event ID
+* `ttm=` : The true timestamp
+* `url=` : The page URL
+* `cv=` : The context vendor (deprecated)
 
 <a name="setup-redshift" />
 

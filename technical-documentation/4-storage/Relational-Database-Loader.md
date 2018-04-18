@@ -72,7 +72,7 @@ Available steps to include:
 
 To manually pass `--config`, `--target` and `--resolver` it is required to encode content of these files with Base64.
 
-[[EmrEtlRunner]] (as of R95) cannot pass `--dry-run`, `--folder` and `--skip consistency_check`, these options are exclusively for manual use.
+[[EmrEtlRunner]] (as of R95) cannot pass `--dry-run` and `--folder`. These options are exclusively for manual use.
 
 <a name="load-process" />
 

@@ -32,9 +32,9 @@ The available options are as follows:
         -r, --resolver RESOLVER          Iglu resolver file
         -t, --targets TARGETS            targets directory
         -d, --debug                      enable EMR Job Flow debugging
-        -f {enrich,shred,elasticsearch,archive_raw,rdb_load,analyze,archive_enriched},
+        -f {enrich,shred,elasticsearch,archive_raw,rdb_load,analyze,archive_enriched,archive_shredded,staging_stream_enrich},
             --resume-from                resume from the specified step
-        -x {staging,enrich,shred,elasticsearch,archive_raw,rdb_load,analyze,archive_enriched,archive_shredded},
+        -x {staging,enrich,shred,elasticsearch,archive_raw,rdb_load,consistency_check,analyze,load_manifest_check,archive_enriched,archive_shredded,staging_stream_enrich},
             --skip                       skip the specified step(s)
         -i, --include {vacuum}           include additional step(s)
         -l, --lock PATH                  where to store the lock

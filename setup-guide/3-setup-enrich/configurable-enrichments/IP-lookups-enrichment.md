@@ -2,6 +2,9 @@
 
 [**HOME**](Home) » [**SNOWPLOW SETUP GUIDE**](Setting-up-Snowplow) » [Step 3: Setting up Enrich](Setting-up-enrich) » [Configurable enrichments](Configurable-enrichments) » IP lookups enrichment
 
+You can find documentation for version 1-0-0 of the enrichment in
+[the dedicated wiki page](IP-lookups-enrichment-1-0-0).
+
 ### Compatibility
 
 JSON Schema   [iglu:com.snowplowanalytics.snowplow/ip_lookups/jsonschema/2-0-0][schema]

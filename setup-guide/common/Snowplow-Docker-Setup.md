@@ -8,6 +8,7 @@ Snowplow provides official Docker images for the following projects:
 - [Stream Enrich](Stream-Enrich)
 - [Elasticsearch Loader](Elasticsearch-Loader)
 - [S3 Loader](S3-Loader)
+- [Iglu Server][iglu-server]
 
 ## Getting started
 
@@ -38,6 +39,9 @@ docker pull snowplow-docker-registry.bintray.io/snowplow/elasticsearch-loader:0.
 
 # S3 Loader image
 docker pull snowplow-docker-registry.bintray.io/snowplow/s3-loader:0.6.0
+
+# Iglu Server image
+docker pull snowplow-docker-registry.bintray.io/snowplow/iglu-server:0.3.0
 ```
 
 ### Building the Docker images
@@ -67,6 +71,9 @@ docker build -t snowplow/elasticsearch-loader:0.10.0 elasticsearch-loader/0.10.1
 
 # S3 Loader image
 docker build -t snowplow/s3-loader:0.6.0 s3-loader/0.6.0
+
+# Iglu Server image
+docker build -t snowplow/iglu-server:0.3.0 iglu-server/0.3.0
 ```
 
 ## Using the images
@@ -79,6 +86,7 @@ For each project, please refer to the corresponding setup guide to configure it 
 - [Stream Enrich setup guide](Configure-Stream-Enrich)
 - [Elasticsearch Loader setup guide](Elasticsearch-Loader-Setup)
 - [S3 Loader setup guide](Snowplow-S3-Loader-Setup)
+- [Iglu Server setup guide][iglu-server-setup]
 
 ### Execution
 
@@ -112,8 +120,18 @@ docker run \
   -v $PWD/s3-loader-config:/snowplow/config \
   snowplow/s3-loader:0.6.0 \
   --config /snowplow/config/config.hocon
+
+# Iglu Server
+docker run \
+-v ${PWD}/iglu-server-config:/snowplow/config \
+snowplow/iglu-server:0.3.0 \ # if you have built the image
+# snowplow-docker-registry.bintray.io/snowplow/iglu-server:0.3.0 if you have pulled the image
+--config /snowplow/config/application.conf
 ```
 
 [docker]: https://www.docker.com
 [installation-guide]: https://docs.docker.com/engine/installation/
 [registry]: https://bintray.com/snowplow/registry
+[iglu-server]: https://github.com/snowplow/iglu/wiki/Iglu-server
+[iglu-server-setup]: https://github.com/snowplow/iglu/wiki/Iglu-server-setup
+

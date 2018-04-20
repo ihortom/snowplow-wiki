@@ -6,6 +6,7 @@ Snowplow provides official Docker images for the following projects:
 - [Stream Enrich](Stream-Enrich)
 - [Elasticsearch Loader](Elasticsearch-Loader)
 - [S3 Loader](S3-Loader)
+- [Iglu Server][iglu-server]
 
 All the images are based on [the base image][base-image] which leverages
 [the Java 8 Alpine image][alpine-image].
@@ -28,7 +29,10 @@ See also the [setup guide](Snowplow-Docker-Setup).
 [base-image]: https://github.com/snowplow/snowplow-docker/tree/master/base
 [alpine-image]: https://github.com/docker-library/openjdk/blob/master/8-jre/alpine/Dockerfile
 
+[iglu-server]: https://github.com/snowplow/iglu/wiki/Iglu-server
+
 [dumb-init]: https://github.com/Yelp/dumb-init
 [su-exec]: https://github.com/ncopa/su-exec
 
 [jvm-docker-article]: https://blogs.oracle.com/java-platform-group/java-se-support-for-docker-cpu-and-memory-limits
+

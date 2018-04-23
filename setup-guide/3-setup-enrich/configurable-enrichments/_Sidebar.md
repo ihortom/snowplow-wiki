@@ -22,6 +22,7 @@
     - [[API Request enrichment]]
     - [[HTTP header extractor enrichment]]
     - [[SQL Query enrichment]]
+    - [[PII Pseudonymization Enrichment]]
 - [Step 4: Setup alternative data stores](setting-up-alternative-data-stores)  
 - [Step 5: Data modeling](getting-started-with-data-modeling)  
 - [Step 6: Analyze your data!](getting-started-analyzing-snowplow-data) 

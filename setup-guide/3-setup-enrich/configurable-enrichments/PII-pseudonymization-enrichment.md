@@ -35,7 +35,7 @@ Always check the underlying JSON Schema to avoid accidentally invalidating an en
 
 The scenario to avoid is as follows:
 
-* You have a `customerEmail` property in a JSON Schema which must validate with `format: email`
+* You have a `customerEmail` property in a JSON Schema which must validate with <br/>`format: email`
 * You apply the PII Enrichment to hash that field
 * The enriched event *is* successfully emitted from Stream Enrich...
 * **However**, a downstream process (e.g. RDB Shredder) which validates the now-pseudonymized event will **reject** the event, as the hashed value is no longer in an email format

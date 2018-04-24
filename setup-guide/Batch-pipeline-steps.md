@@ -57,9 +57,4 @@ Failed step | Recovery actions
  7 | Rerun the *EmrEtlRunner* with `--skip staging_stream_enrich,shred,rdb_load` option.
  8 | Rerun the *EmrEtlRunner* with `--skip staging_stream_enrich,shred,rdb_load,` option.
 
- 7 | Delete `shredded:good` [K]. Rerun the *EmrEtlRunner* with `--skip staging_stream_enrich` option.|
- 10 | Rerun the *EmrEtlRunner* with `--skip staging_stream_enrich,shred,elasticsearch` option|
- 11 | Use `--skip staging_stream_enrich,shred`. If the failure occurred at `analyze` stage, you can skip it with `--skip staging_stream_enrich,shred,rdb_load` option. |
- 12 | Rerun the *EmrEtlRunner* with `--resume-from archive_shredded` option.
-
  [r102-shred-bug]: https://github.com/snowplow/snowplow/issues/3722

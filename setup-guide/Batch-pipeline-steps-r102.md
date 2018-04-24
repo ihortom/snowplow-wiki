@@ -55,6 +55,6 @@ Failed step | Recovery actions
  5 | You can ignore moving `_SUCCESS` file. Resume from step 6.
  6 | The data load cannot result in partial load due to the use of `COMMIT`. However, if more than one data target is used you would need to rerun the *EmrEtlRunner* with the successfully loaded target removed from the `config.yml` configuration file to retry loading the "failed" target.<br><br>**Note**: If the failure occurred at `analyze` stage, you can skip it with `--skip staging_stream_enrich,shred,rdb_load` option.
  7 | Rerun the *EmrEtlRunner* with `--skip staging_stream_enrich,shred,rdb_load` option.
- 8 | Rerun the *EmrEtlRunner* with `--skip staging_stream_enrich,shred,rdb_load,` option.
+ 8 | Rerun the *EmrEtlRunner* with `--resume-from archive_shredded` option.
 
  [r102-shred-bug]: https://github.com/snowplow/snowplow/issues/3722

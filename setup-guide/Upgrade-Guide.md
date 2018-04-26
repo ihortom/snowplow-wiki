@@ -71,11 +71,17 @@ For easier navigation, please, follow the links below.
 
 ## Snowplow 104 Stoplesteinan
 
-Bugfix release for EmrEtlRunner Stream Enrich mode
+This release most notably solves an EmrEtlRunner Stream Enrich mode bugs introduced in R102.
+Information is available in [issue #3717](https://github.com/snowplow/snowplow/issues/3717) and [#3722](https://github.com/snowplow/snowplow/issues/3722).
 
 #### Upgrading EmrEtlRunner
 
 The latest version of the *EmrEtlRunner* is available from our Bintray [here](http://dl.bintray.com/snowplow/snowplow-generic/snowplow_emr_r104_stoplesteinan.zip).
+
+### Read more
+
+* [R104 Blog Post](TODO)
+* [R104 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r104-stoplesteinan)
 
 <a name="r103" />
 

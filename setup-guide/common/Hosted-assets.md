@@ -12,7 +12,7 @@ We are steadily moving over to [Bintray][bintray] for hosting binaries and artif
 
 To make operating Snowplow easier, the EmrEtlRunner app are now available as prebuilt executables in a single zipfile here:
 
-    http://dl.bintray.com/snowplow/snowplow-generic/snowplow_emr_r97_knossos.zip
+    http://dl.bintray.com/snowplow/snowplow-generic/snowplow_emr_r104_stoplesteinan.zip
 
 Right-click on this [Download link][emr-download] to save it down locally.
 
@@ -24,7 +24,7 @@ Right-click on this [Download link][emr-download] to save it down locally.
 
 The minified JavaScript tracker is hosted on CloudFront against its full semantic version:
 
-    http(s)://d1fc8wv8zag5ca.cloudfront.net/2.8.2/sp.js
+    http(s)://d1fc8wv8zag5ca.cloudfront.net/2.9.0/sp.js
 
 **Note**: The above URL references JavaScript tracker v2.8.2 (d1fc8wv8zag5ca.cloudfront.net/**2.8.2**/sp.js). To ensure you are using the latest version, please, check what it currently is at [GitHub](https://github.com/snowplow/snowplow-javascript-tracker/releases) and amend accordingly.
 
@@ -162,4 +162,4 @@ Please see the [[Artifact repositories]] wiki page for more information.
 [esl-dl-http]: http://dl.bintray.com/snowplow/snowplow-generic/snowplow_elasticsearch_loader_http_0.10.1.zip
 [esl-dl-tcp]: http://dl.bintray.com/snowplow/snowplow-generic/snowplow_elasticsearch_loader_tcp_0.10.1.zip
 [esl-dl-tcp-2x]: http://dl.bintray.com/snowplow/snowplow-generic/snowplow_elasticsearch_loader_tcp_2x_0.10.1.zip
-[emr-download]: http://dl.bintray.com/snowplow/snowplow-generic/snowplow_emr_r97_knossos.zip
+[emr-download]: http://dl.bintray.com/snowplow/snowplow-generic/snowplow_emr_r104_stoplesteinan.zip

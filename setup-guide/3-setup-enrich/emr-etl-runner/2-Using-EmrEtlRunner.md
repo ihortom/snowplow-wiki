@@ -42,6 +42,9 @@ The available options are as follows:
 
 Note that the `config` and `resolver` options are mandatory.
 
+Note that in *Stream Enrich mode* you cannot skip nor resume from `staging`, `enrich` and `archive_raw`.
+Instead of `staging` and `enrich`, in Stream Enrich mode single special `staging_stream_enrich` is used.
+
 ### 2.2 Lint commands
 
 Other useful commands include the `lint` commands which allows you to check the validity of your

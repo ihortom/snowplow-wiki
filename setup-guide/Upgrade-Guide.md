@@ -6,6 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
+- [Snowplow 104 Stoplesteinan](#r104) (**r104**) 2018-04-XX
 - [Snowplow 103 Paestum](#r103) (**r103**) 2018-04-17
 - [Snowplow 102 Afontova Gora](#r102) (**r102**) 2018-04-03
 - [Snowplow 101 Neapolis](#r101) (**r101**) 2018-03-21
@@ -65,6 +66,16 @@ For easier navigation, please, follow the links below.
 - [Snowplow 0.9.2](#v0.9.2) (**v0.9.2**) 2014-04-30
 - [Snowplow 0.9.1](#v0.9.1) (**v0.9.1**) 2014-04-11
 - [Snowplow 0.9.0](#v0.9.0) (**v0.9.0**) 2014-02-04
+
+<a name="r104" />
+
+## Snowplow 104 Stoplesteinan
+
+Bugfix release for EmrEtlRunner Stream Enrich mode
+
+#### Upgrading EmrEtlRunner
+
+The latest version of the *EmrEtlRunner* is available from our Bintray [here](http://dl.bintray.com/snowplow/snowplow-generic/snowplow_emr_r104_stoplesteinan.zip).
 
 <a name="r103" />
 

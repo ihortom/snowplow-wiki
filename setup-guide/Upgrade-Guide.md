@@ -6,6 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
+- [Snowplow 105 Pompeii](#r105) (**r105**) 2018-05-xx
 - [Snowplow 104 Stoplesteinan](#r104) (**r104**) 2018-04-30
 - [Snowplow 103 Paestum](#r103) (**r103**) 2018-04-17
 - [Snowplow 102 Afontova Gora](#r102) (**r102**) 2018-04-03
@@ -66,6 +67,26 @@ For easier navigation, please, follow the links below.
 - [Snowplow 0.9.2](#v0.9.2) (**v0.9.2**) 2014-04-30
 - [Snowplow 0.9.1](#v0.9.1) (**v0.9.1**) 2014-04-11
 - [Snowplow 0.9.0](#v0.9.0) (**v0.9.0**) 2014-02-04
+
+<a name="r105" />
+
+## Snowplow 105 Pompeii
+
+This release focuses on solving an issue with the real-time pipeline which may result in duplicate
+events if you're using Kinesis.
+
+More information is available in [issue #3745](https://github.com/snowplow/snowplow/issues/3745)
+and [the dedicated Discourse post](https://discourse.snowplowanalytics.com/t/important-alert-r101-bug-may-result-in-duplicated-data-in-the-real-time-pipeline/1987).
+
+#### Upgrading Stream Enrich
+
+A version of Stream Enrich incorporating a fix can be found on our Bintray
+[here](https://bintray.com/snowplow/snowplow-generic/snowplow-stream-enrich/0.16.1#files).
+
+### Read more
+
+* [R105 Blog Post](https://snowplowanalytics.com/blog/2018/05/xx/snowplow-r105-stoplesteinan-released-with-important-bugfixes/)
+* [R105 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r105-pompeii)
 
 <a name="r104" />
 

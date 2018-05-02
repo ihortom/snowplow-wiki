@@ -61,7 +61,7 @@ If you are using Gradle in your own job, then add following lines in your `build
 ```
 dependencies {
     ...
-    // Snowplow Scala Tracker
+    // Snowplow Scala Analytics SDK
     compile 'com.snowplowanalytics:snowplow-scala-analytics-sdk_2.11:0.3.0'
     }
 ```

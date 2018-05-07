@@ -6,7 +6,7 @@ You can also use [Snowplow Version Matrix](Snowplow-version-matrix) as a guidanc
 
 For easier navigation, please, follow the links below.
 
-- [Snowplow 105 Pompeii](#r105) (**r105**) 2018-05-xx
+- [Snowplow 105 Pompeii](#r105) (**r105**) 2018-05-07
 - [Snowplow 104 Stoplesteinan](#r104) (**r104**) 2018-04-30
 - [Snowplow 103 Paestum](#r103) (**r103**) 2018-04-17
 - [Snowplow 102 Afontova Gora](#r102) (**r102**) 2018-04-03
@@ -85,7 +85,7 @@ A version of Stream Enrich incorporating a fix can be found on our Bintray
 
 ### Read more
 
-* [R105 Blog Post](https://snowplowanalytics.com/blog/2018/05/xx/snowplow-r105-stoplesteinan-released-with-important-bugfixes/)
+* [R105 Blog Post](https://snowplowanalytics.com/blog/2018/05/07/snowplow-r105-pompeii-released-realtime-pipeline-duplication-issue/)
 * [R105 Release Notes](https://github.com/snowplow/snowplow/releases/tag/r105-pompeii)
 
 <a name="r104" />

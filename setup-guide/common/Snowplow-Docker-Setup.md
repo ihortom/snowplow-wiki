@@ -32,7 +32,7 @@ registry. As a result, you can pull them directly:
 docker pull snowplow-docker-registry.bintray.io/snowplow/scala-stream-collector:0.13.0
 
 # Stream Enrich image
-docker pull snowplow-docker-registry.bintray.io/snowplow/stream-enrich:0.16.0
+docker pull snowplow-docker-registry.bintray.io/snowplow/stream-enrich:0.16.1
 
 # Elasticsearch Loader image
 docker pull snowplow-docker-registry.bintray.io/snowplow/elasticsearch-loader:0.10.1
@@ -64,7 +64,7 @@ docker build -t snowplow/base:0.1.0 base
 docker build -t snowplow/scala-stream-collector:0.13.0 scala-stream-collector/0.13.0
 
 # Stream Enrich image
-docker build -t snowplow/stream-enrich:0.16.0 stream-enrich/0.16.0
+docker build -t snowplow/stream-enrich:0.16.1 stream-enrich/0.16.1
 
 # Elasticsearch Loader image
 docker build -t snowplow/elasticsearch-loader:0.10.0 elasticsearch-loader/0.10.1
@@ -103,7 +103,7 @@ docker run \
 # Stream Enrich
 docker run \
   -v $PWD/stream-enrich-config:/snowplow/config \
-  snowplow/stream-enrich:0.16.0 \
+  snowplow/stream-enrich:0.16.1 \
   --config /snowplow/config/config.hocon \
   --resolver file:/snowplow/config/resolver.json \
   --enrichments file:/snowplow/config/enrichments/ \

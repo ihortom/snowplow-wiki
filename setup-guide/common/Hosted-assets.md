@@ -74,7 +74,7 @@ Right-click on this [Download link][hadoop-event-recovery-download] to save it d
 
 The Stream Enrich app is available on Bintray here:
 
-    https://bintray.com/snowplow/snowplow-generic/snowplow-stream-enrich/0.16.0#files
+    https://bintray.com/snowplow/snowplow-generic/snowplow-stream-enrich/0.16.1#files
 
 Choose an artifact according to the supported targeted platform:
 
@@ -89,7 +89,7 @@ Choose an artifact according to the supported targeted platform:
 
 Both Enrichment processes make use of the free [GeoLite City database][geolite] from [MaxMind, Inc][maxmind], also stored in this public Amazon S3 bucket:
 
-    s3://snowplow-hosted-assets/third-party/maxmind/GeoLiteCity.dat
+    s3://snowplow-hosted-assets/third-party/maxmind/GeoLite2-City.mmdb
 
 This file is updated every month by the Snowplow Analytics team.
 
@@ -153,8 +153,8 @@ Please see the [[Artifact repositories]] wiki page for more information.
 [spark-enrich-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/spark-enrich/snowplow-spark-enrich-1.13.0.jar
 [rdb-download]: http://d2io1hx8u877l0.cloudfront.net/4-storage/rdb-shredder/snowplow-rdb-shredder-0.13.0.jar
 [hadoop-event-recovery-download]: http://d2io1hx8u877l0.cloudfront.net/3-enrich/hadoop-event-recovery/snowplow-hadoop-event-recovery-0.2.0.jar
-[glc-download]: http://d2io1hx8u877l0.cloudfront.net/third-party/maxmind/GeoLiteCity.dat
-[geolite]: http://dev.maxmind.com/geoip/legacy/geolite?rld=snowplow
+[glc-download]: http://d2io1hx8u877l0.cloudfront.net/third-party/maxmind/GeoLite2-City.mmdb
+[geolite]: https://dev.maxmind.com/geoip/geoip2/geolite2/?rld=snowplow
 [maxmind]: http://www.maxmind.com/?rld=snowplow
 
 [bintray]: https://bintray.com/

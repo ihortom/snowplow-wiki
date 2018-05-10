@@ -1583,7 +1583,7 @@ Emitter e2 = new Emitter
         .method(HttpMethod.GET) // Optional - Defines how we send the request
         .option(BufferOption.Single) // Optional - Defines how many events we bundle in a POST
         .security(RequestSecurity.HTTPS) // Optional - Defines what protocol used to send events
-        .tls("TLSv1.2") // Optional - Defines what TLS versions are used for the request
+        .tls(TLSVersion.TLSv1_2) // Optional - Defines what TLS versions are used for the request
         .callback(new EmitterCallback() {...})
         .build();
 ```
@@ -1601,19 +1601,19 @@ The below are required arguments for the 'EmitterBuilder({{ ... }})' segment of 
 
 We also have several extra builder options such as:
 
-|    **Function** | **Description**                                 | **Options**                     | **Default**                  |
-|----------------:|:------------------------------------------------|:--------------------------------|:-----------------------------|
-|        `method` | The request method to use                       | `HttpMethod.GET, .POST`         | `HttpMethod.POST`            |
-|        `option` | The amount of events sent in a POST request     | `BufferOption.{{ Enum Option}}` | `BufferOption.DefaultGroup ` |
-|      `security` | Whether to send over HTTP or HTTPS              | `RequestSecurity.HTTP, .HTTPS`  | `RequestSecurity.HTTP`       |
-|           `tls` | Which TLS version will be used                  | A string or array of strings    | `"TLSv1.2"`                    |
-|      `callback` | A callback to output successes and failures     | `new RequestCallback{ ... }`    | `null`                       |
-|          `tick` | The time between emitter ticks                  | Any positive int                | `5`                          |
-|     `sendLimit` | The maximum amount of events to get from the DB | Any positive int                | `250`                        |
-|    `emptyLimit` | The amount of times the emitter can be empty    | Any positive int                | `5`                          |
-|  `byteLimitGet` | The maximum amount of bytes to send in a GET    | Any positive int                | `40000`                      |
-| `byteLimitPost` | The maximum amount of bytes to send in a POST   | Any positive int                | `40000`                      |
-|      `timeUnit` | The TimeUnit that time measurements are in      | `TimeUnit.{{ Enum Option }}`    | `TimeUnit.SECONDS`           |
+|    **Function** | **Description**                                 | **Options**                           | **Default**                  |
+|----------------:|:------------------------------------------------|:--------------------------------------|:-----------------------------|
+|        `method` | The request method to use                       | `HttpMethod.GET, .POST`               | `HttpMethod.POST`            |
+|        `option` | The amount of events sent in a POST request     | `BufferOption.{{ Enum Option}}`       | `BufferOption.DefaultGroup ` |
+|      `security` | Whether to send over HTTP or HTTPS              | `RequestSecurity.HTTP, .HTTPS`        | `RequestSecurity.HTTP`       |
+|           `tls` | Which TLS version will be used                  | `TLSVersion` or `EnumSet<TLSVersion>` | `TLSVersion.TLSv1_2`         |
+|      `callback` | A callback to output successes and failures     | `new RequestCallback{ ... }`          | `null`                       |
+|          `tick` | The time between emitter ticks                  | Any positive int                      | `5`                          |
+|     `sendLimit` | The maximum amount of events to get from the DB | Any positive int                      | `250`                        |
+|    `emptyLimit` | The amount of times the emitter can be empty    | Any positive int                      | `5`                          |
+|  `byteLimitGet` | The maximum amount of bytes to send in a GET    | Any positive int                      | `40000`                      |
+| `byteLimitPost` | The maximum amount of bytes to send in a POST   | Any positive int                      | `40000`                      |
+|      `timeUnit` | The TimeUnit that time measurements are in      | `TimeUnit.{{ Enum Option }}`          | `TimeUnit.SECONDS`           |
 
 [Back to top](#top)
 
@@ -1631,7 +1631,7 @@ We also have several extra builder options such as:
 * `method` : Whether to send requests via `GET` or `POST`; essentially whether to send each event individually or to send many events together in a `POST`.  The default `POST` setting is recommended as it has huge performance gains over sending individually as a `GET`.
 * `option` : How many events can be parcelled together in a `POST`, this can be increased to a maximum of `25` per event.  If you require larger volumes please raise a ticket to have this limit increased!
 * `security` : Whether to send events via `HTTP` or `HTTPS`.
-* `tls` : Which version of TLS will be used in requests. The arguments can either be a single string or array of strings, and the strings must follow the format "TLSv1.x".
+* `tls` : Which version of TLS will be used in requests. The arguments can either be a single TLSVersion enum or EnumSet of TLSVersion enums (EnumSet.of(TLSVersion.TLSv1_1, TLSVersion.TLSv1_2)).
 * `callback` : A custom callback method that will be called after each emitter send loop, currently the only variables included are the count of successfully and unsuccessfully sent events.
 * `byteLimitGet` : Allows you to set an upper limit for the maximal size of a single `GET` request.  Meaning that if an event exceeds this size we will attempt to send it but will then delete it from the database regardless of success to send.
 * `byteLimitPost` : Allows you to set an upper limit for the maximal size of a single `POST` request.  Meaning that if an event exceeds this size we will attempt to send it but will then delete it from the database regardless of success to send.

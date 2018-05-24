@@ -8,6 +8,9 @@ JSON Schema   [iglu:com.snowplowanalytics.snowplow.enrichments/pii_enrichment_co
 Compatibility R100 <br/>
 Data provider None (Internal transformation)<br/>
 
+#### Please note:
+The PII Enrichment is not compatible with the current version of [Snowplow Mini](https://github.com/snowplow/snowplow-mini/wiki/Usage-guide). A new version of Snowplow Mini which will work with the PII enrichment is expected to be released before the 28th of May 2018.
+
 ### Overview
 
 The PII Enrichment provides capabilities for Snowplow operators to better protect the privacy rights of data subjects. The obligations of handlers of Personally Identifiable Information (PII) data under GDPR have been outlined on the [EU GDPR website][gdpr].
